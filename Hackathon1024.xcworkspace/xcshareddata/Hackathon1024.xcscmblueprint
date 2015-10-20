@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ec9f9f15-abff-49ee-99fb-b5cb49a32dc2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "ec9f9f15-abff-49ee-99fb-b5cb49a32dc2" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ec9f9f15-abff-49ee-99fb-b5cb49a32dc2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "23B4BE9D-EB61-4070-9AB9-E744C6F4B972",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ec9f9f15-abff-49ee-99fb-b5cb49a32dc2" : "hackathon1024\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Hackathon1024",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "trunk\/Hackathon1024\/Hackathon1024.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/cyanzhong.svn.cloudforge.com\/hackathon1024",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ec9f9f15-abff-49ee-99fb-b5cb49a32dc2"
+    }
+  ]
+}

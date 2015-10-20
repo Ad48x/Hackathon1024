@@ -1,0 +1,21 @@
+//
+//  AppPrefixHeader.pch
+//  Hackathon1024
+//
+//  Created by cyan on 15/10/24.
+//  Copyright © 2015年 cyan. All rights reserved.
+//
+
+#ifndef AppPrefixHeader_pch
+#define AppPrefixHeader_pch
+
+// Common Headers
+#import "AppComHeader.h"
+
+// Base Classes
+#import "HACBaseClasses.h"
+
+// Other Headers
+#import "HACHeaders.h"
+
+#endif /* AppPrefixHeader_pch */
