@@ -71,7 +71,7 @@
 #pragma mark - iConsole Delegate
 
 - (void)handleConsoleCommand:(NSString *)command {
-    Log(@"Receive Command: %@", command);
+    Log(@"Command Received: %@", command);
 }
 
 @end
