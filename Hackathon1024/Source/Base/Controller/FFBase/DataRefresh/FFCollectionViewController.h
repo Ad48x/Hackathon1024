@@ -10,7 +10,7 @@
 
 @interface FFCollectionViewController : FFDataRefreshController<UICollectionViewDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) HACBaseCollectionView *collectionView;
 
 - (void)initCollectionWithFrame:(CGRect)frame layout:(UICollectionViewLayout *)layout;
 

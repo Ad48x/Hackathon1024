@@ -15,6 +15,9 @@
 #import "HACBaseController.h"
 #import "HACBaseTableController.h"
 #import "HACImagePickerController.h"
+#import "HACBaseCollectionView.h"
+#import "HACBaseCollectionViewCell.h"
+#import "HACBaseCollectionLayout.h"
 
 // FFBase
 #define FF_NAV_BAR_HEIGHT   (64.0)

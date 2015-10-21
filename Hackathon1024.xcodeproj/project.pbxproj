@@ -26,6 +26,9 @@
 		871A23371BD4DDBB00323592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871A23391BD4DDBB00323592 /* InfoPlist.strings */; };
 		872A1B4E1BD786CE008C81C1 /* HACDebugUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B4D1BD786CE008C81C1 /* HACDebugUtility.m */; settings = {ASSET_TAGS = (); }; };
 		872A1B511BD78810008C81C1 /* HACWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B501BD78810008C81C1 /* HACWindow.m */; settings = {ASSET_TAGS = (); }; };
+		872A1B541BD795E6008C81C1 /* HACBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B531BD795E6008C81C1 /* HACBaseCollectionView.m */; settings = {ASSET_TAGS = (); }; };
+		872A1B571BD7963B008C81C1 /* HACBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B561BD7963B008C81C1 /* HACBaseCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		872A1B5A1BD7968F008C81C1 /* HACBaseCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B591BD7968F008C81C1 /* HACBaseCollectionLayout.m */; settings = {ASSET_TAGS = (); }; };
 		872E5F451BD6257E00E5947B /* HACLeanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872E5F441BD6257E00E5947B /* HACLeanManager.m */; settings = {ASSET_TAGS = (); }; };
 		873012A51BD5F2FA001C861B /* FXNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 873012A31BD5F2FA001C861B /* FXNotifications.h */; settings = {ASSET_TAGS = (); }; };
 		873012A61BD5F2FA001C861B /* FXNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 873012A41BD5F2FA001C861B /* FXNotifications.m */; settings = {ASSET_TAGS = (); }; };
@@ -278,6 +281,12 @@
 		872A1B4D1BD786CE008C81C1 /* HACDebugUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACDebugUtility.m; sourceTree = "<group>"; };
 		872A1B4F1BD78810008C81C1 /* HACWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACWindow.h; sourceTree = "<group>"; };
 		872A1B501BD78810008C81C1 /* HACWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACWindow.m; sourceTree = "<group>"; };
+		872A1B521BD795E6008C81C1 /* HACBaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBaseCollectionView.h; sourceTree = "<group>"; };
+		872A1B531BD795E6008C81C1 /* HACBaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBaseCollectionView.m; sourceTree = "<group>"; };
+		872A1B551BD7963B008C81C1 /* HACBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		872A1B561BD7963B008C81C1 /* HACBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		872A1B581BD7968F008C81C1 /* HACBaseCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBaseCollectionLayout.h; sourceTree = "<group>"; };
+		872A1B591BD7968F008C81C1 /* HACBaseCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBaseCollectionLayout.m; sourceTree = "<group>"; };
 		872E5F431BD6257E00E5947B /* HACLeanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACLeanManager.h; sourceTree = "<group>"; };
 		872E5F441BD6257E00E5947B /* HACLeanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACLeanManager.m; sourceTree = "<group>"; };
 		873012A31BD5F2FA001C861B /* FXNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXNotifications.h; sourceTree = "<group>"; };
@@ -1151,6 +1160,12 @@
 				8787EA1B1BD23E2A0037961C /* HACBaseTableView.m */,
 				8787EA1C1BD23E2A0037961C /* HACBaseTableViewCell.h */,
 				8787EA1D1BD23E2A0037961C /* HACBaseTableViewCell.m */,
+				872A1B521BD795E6008C81C1 /* HACBaseCollectionView.h */,
+				872A1B531BD795E6008C81C1 /* HACBaseCollectionView.m */,
+				872A1B551BD7963B008C81C1 /* HACBaseCollectionViewCell.h */,
+				872A1B561BD7963B008C81C1 /* HACBaseCollectionViewCell.m */,
+				872A1B581BD7968F008C81C1 /* HACBaseCollectionLayout.h */,
+				872A1B591BD7968F008C81C1 /* HACBaseCollectionLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1719,9 +1734,11 @@
 				87640D531BD496FF00522EAB /* MANaviRoute.m in Sources */,
 				87640D521BD496FF00522EAB /* MANaviAnnotationView.m in Sources */,
 				87640D4E1BD496FF00522EAB /* GeocodeAnnotation.m in Sources */,
+				872A1B541BD795E6008C81C1 /* HACBaseCollectionView.m in Sources */,
 				87640D511BD496FF00522EAB /* MANaviAnnotation.m in Sources */,
 				87640D4C1BD496FF00522EAB /* CustomOverlay.m in Sources */,
 				872A1B511BD78810008C81C1 /* HACWindow.m in Sources */,
+				872A1B571BD7963B008C81C1 /* HACBaseCollectionViewCell.m in Sources */,
 				871A232C1BD4D09800323592 /* FFTableViewController.m in Sources */,
 				8787EA201BD23E2A0037961C /* HACBaseTableView.m in Sources */,
 				8787EA211BD23E2A0037961C /* HACBaseTableViewCell.m in Sources */,
@@ -1736,6 +1753,7 @@
 				8787EA281BD23E970037961C /* HACBaseTableController.m in Sources */,
 				87DB699C1BD399560033C37B /* TQLocationConverter.m in Sources */,
 				87640D561BD496FF00522EAB /* CommonUtility.m in Sources */,
+				872A1B5A1BD7968F008C81C1 /* HACBaseCollectionLayout.m in Sources */,
 				87640D4F1BD496FF00522EAB /* LineDashPolyline.m in Sources */,
 				872A1B4E1BD786CE008C81C1 /* HACDebugUtility.m in Sources */,
 				871A23301BD4D09800323592 /* FFBaseViewController.m in Sources */,

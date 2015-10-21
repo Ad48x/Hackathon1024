@@ -19,7 +19,7 @@
 }
 
 - (void)initCollectionWithFrame:(CGRect)frame layout:(UICollectionViewLayout *)layout refreshType:(FFDataRefreshMask)mask {
-    self.collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    self.collectionView = [[HACBaseCollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     
     if (mask & FFDataRefreshMaskHeader) {
         self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(didBeginRefreshData)];
