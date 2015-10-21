@@ -11,4 +11,8 @@
 
 @interface HACMapController : HACBaseController
 
+@property (nonatomic, copy) NSString *destinationName;
+@property (nonatomic, assign) CLLocationCoordinate2D startCoordinate;
+@property (nonatomic, assign) CLLocationCoordinate2D destinationCoordinate;
+
 @end

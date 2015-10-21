@@ -76,6 +76,8 @@
 		<string>mqqapi</string>
 		<string>mqqopensdkapiV2</string>
 		<string>com.weibo</string>
+		<string>taobao</string>
+		<string>alipay</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
