@@ -29,22 +29,31 @@
 - (void)handleNetworkResponse:(id)responseObject complete:(HACNetworkCallback)callback {
     __block NSDictionary *dict = @{};
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString *resp = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        dict = [resp objectFromJSONString];
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            dict = (NSDictionary *)responseObject;
+        } else if ([responseObject isKindOfClass:[NSString class]]) {
+            dict = [responseObject objectFromJSONString];
+        } else if ([responseObject isKindOfClass:[NSData class]]) {
+            NSString *resp = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            dict = [resp objectFromJSONString];
+        }
+
         if (dict) {
             int retCode = [dict[@"ret"] intValue];
             dispatch_async(dispatch_get_main_queue(), ^{
                 callback(retCode, dict);
             });
         } else {
-            Log(@"server err: %@", resp);
+            Log(@"server err: %@", responseObject);
         }
     });
 }
 
 - (void)post:(NSString *)api params:(NSDictionary *)params complete:(HACNetworkCallback)callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     if (params == nil) {
         params = @{};
@@ -56,21 +65,23 @@
               [self handleNetworkResponse:responseObject complete:callback];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              Log(@"network err: %@, %@", error, operation);
+              Log(@"network err: %@", error);
           }
      ];
 }
 
 - (void)get:(NSString *)api complete:(HACNetworkCallback)callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     [manager GET:api
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              [self handleNetworkResponse:responseObject complete:callback];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             Log(@"network err: %@, %@", error, operation);
+             Log(@"network err: %@", error);
          }
      ];
 }

@@ -13,6 +13,8 @@
 #import "HACShareManager.h"
 #import "HACDebugUtility.h"
 
+#import "HACChatController.h"
+
 @interface HACAppDelegate ()
 
 @end
@@ -25,11 +27,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // MARK: init Window
-    self.window = [[HACWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[HACMainController alloc] init];
-    [self.window makeKeyAndVisible];
-    
     // MARK: Lean
     [[HACLeanManager manager] initSDK];
     // MARK: Push
@@ -38,6 +35,11 @@
     [[HACShareManager manager] initSDKs];
     // MARK: Debug
     [HACDebugUtility initDebugEnv];
+    
+    // MARK: init Window
+    self.window = [[HACWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[HACChatController alloc] init];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
