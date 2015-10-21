@@ -160,7 +160,6 @@
 		878BC1591BD13F18000E849E /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 878BC1571BD13F18000E849E /* TencentOpenApi_IOS_Bundle.bundle */; settings = {ASSET_TAGS = (); }; };
 		878BC15B1BD13F2D000E849E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 878BC15A1BD13F2D000E849E /* libWeChatSDK.a */; settings = {ASSET_TAGS = (); }; };
 		878BC1811BD1E2C2000E849E /* HACPushCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878BC1801BD1E2C2000E849E /* HACPushCenter.m */; settings = {ASSET_TAGS = (); }; };
-		878BC1831BD1EB89000E849E /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 878BC1821BD1EB89000E849E /* PushConfig.plist */; settings = {ASSET_TAGS = (); }; };
 		878BC1851BD1EF5B000E849E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878BC1841BD1EF5B000E849E /* CoreTelephony.framework */; };
 		87B9DD0C1BD5BE1500A1212A /* FXBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */; settings = {ASSET_TAGS = (); }; };
 		87B9DD0D1BD5BE1500A1212A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */; settings = {ASSET_TAGS = (); }; };
@@ -440,7 +439,6 @@
 		878BC15A1BD13F2D000E849E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		878BC17F1BD1E2C2000E849E /* HACPushCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HACPushCenter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		878BC1801BD1E2C2000E849E /* HACPushCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HACPushCenter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		878BC1821BD1EB89000E849E /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		878BC1841BD1EF5B000E849E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
@@ -1063,7 +1061,6 @@
 			isa = PBXGroup;
 			children = (
 				87D059491BD078F800B39F36 /* Info.plist */,
-				878BC1821BD1EB89000E849E /* PushConfig.plist */,
 				87D059391BD078F800B39F36 /* main.m */,
 				87D059B41BD07AC300B39F36 /* AppPrefixHeader.pch */,
 				875C7A091BD3A6320081CE9B /* Hackathon1024.entitlements */,
@@ -1544,7 +1541,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87640D591BD49DB500522EAB /* share_icon.png in Resources */,
-				878BC1831BD1EB89000E849E /* PushConfig.plist in Resources */,
 				878BC1591BD13F18000E849E /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				87D869541BD2757C00DE5EDD /* WeiboSDK.bundle in Resources */,
 				871A23191BD4BBFF00323592 /* GT.bundle in Resources */,
