@@ -30,4 +30,17 @@
     return 44.0;
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    if (idx >= self.data.count) {
+        return nil;
+    }
+    return self.data[idx];
+}
+
+- (void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx {
+    if (idx < self.data.count) {
+        self.data[idx] = object;
+    }
+}
+
 @end

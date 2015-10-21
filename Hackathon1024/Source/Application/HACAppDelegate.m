@@ -35,10 +35,6 @@
     // MARK: Debug
     [self initDebugEnv];
     
-    [self bk_performBlock:^(id obj) {
-        [HACPushCenter sendPush:@"HHH" channel:@"Cyan"];
-    } afterDelay:3];
-    
     return YES;
 }
 
