@@ -27,7 +27,7 @@
 }
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
+    return kHACDefaultCellHeight;
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx {

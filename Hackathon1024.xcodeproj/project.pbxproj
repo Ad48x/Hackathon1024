@@ -24,6 +24,8 @@
 		871A23301BD4D09800323592 /* FFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871A23291BD4D09800323592 /* FFBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
 		871A23331BD4D7B800323592 /* HACLoginCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 871A23321BD4D7B800323592 /* HACLoginCenter.m */; settings = {ASSET_TAGS = (); }; };
 		871A23371BD4DDBB00323592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871A23391BD4DDBB00323592 /* InfoPlist.strings */; };
+		872A1B4E1BD786CE008C81C1 /* HACDebugUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B4D1BD786CE008C81C1 /* HACDebugUtility.m */; settings = {ASSET_TAGS = (); }; };
+		872A1B511BD78810008C81C1 /* HACWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 872A1B501BD78810008C81C1 /* HACWindow.m */; settings = {ASSET_TAGS = (); }; };
 		872E5F451BD6257E00E5947B /* HACLeanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872E5F441BD6257E00E5947B /* HACLeanManager.m */; settings = {ASSET_TAGS = (); }; };
 		873012A51BD5F2FA001C861B /* FXNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 873012A31BD5F2FA001C861B /* FXNotifications.h */; settings = {ASSET_TAGS = (); }; };
 		873012A61BD5F2FA001C861B /* FXNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 873012A41BD5F2FA001C861B /* FXNotifications.m */; settings = {ASSET_TAGS = (); }; };
@@ -272,6 +274,10 @@
 		871A23341BD4D99900323592 /* HACHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HACHeaders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		871A23381BD4DDBB00323592 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; lineEnding = 0; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		871A233A1BD4DDC600323592 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; lineEnding = 0; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		872A1B4C1BD786CE008C81C1 /* HACDebugUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACDebugUtility.h; sourceTree = "<group>"; };
+		872A1B4D1BD786CE008C81C1 /* HACDebugUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACDebugUtility.m; sourceTree = "<group>"; };
+		872A1B4F1BD78810008C81C1 /* HACWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACWindow.h; sourceTree = "<group>"; };
+		872A1B501BD78810008C81C1 /* HACWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACWindow.m; sourceTree = "<group>"; };
 		872E5F431BD6257E00E5947B /* HACLeanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACLeanManager.h; sourceTree = "<group>"; };
 		872E5F441BD6257E00E5947B /* HACLeanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACLeanManager.m; sourceTree = "<group>"; };
 		873012A31BD5F2FA001C861B /* FXNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXNotifications.h; sourceTree = "<group>"; };
@@ -1100,6 +1106,8 @@
 			children = (
 				87D059BA1BD07B9C00B39F36 /* HACAppDelegate.h */,
 				87D059BB1BD07B9C00B39F36 /* HACAppDelegate.m */,
+				872A1B4F1BD78810008C81C1 /* HACWindow.h */,
+				872A1B501BD78810008C81C1 /* HACWindow.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1214,6 +1222,8 @@
 				873875021BD3396700BCEC98 /* HACTuSDKUtility.m */,
 				87C59D2C1BD3FB9100E09552 /* HACLeanUtility.h */,
 				87C59D2D1BD3FB9100E09552 /* HACLeanUtility.m */,
+				872A1B4C1BD786CE008C81C1 /* HACDebugUtility.h */,
+				872A1B4D1BD786CE008C81C1 /* HACDebugUtility.m */,
 				87DB699A1BD399560033C37B /* TQLocationConverter.h */,
 				87DB699B1BD399560033C37B /* TQLocationConverter.m */,
 			);
@@ -1711,6 +1721,7 @@
 				87640D4E1BD496FF00522EAB /* GeocodeAnnotation.m in Sources */,
 				87640D511BD496FF00522EAB /* MANaviAnnotation.m in Sources */,
 				87640D4C1BD496FF00522EAB /* CustomOverlay.m in Sources */,
+				872A1B511BD78810008C81C1 /* HACWindow.m in Sources */,
 				871A232C1BD4D09800323592 /* FFTableViewController.m in Sources */,
 				8787EA201BD23E2A0037961C /* HACBaseTableView.m in Sources */,
 				8787EA211BD23E2A0037961C /* HACBaseTableViewCell.m in Sources */,
@@ -1726,6 +1737,7 @@
 				87DB699C1BD399560033C37B /* TQLocationConverter.m in Sources */,
 				87640D561BD496FF00522EAB /* CommonUtility.m in Sources */,
 				87640D4F1BD496FF00522EAB /* LineDashPolyline.m in Sources */,
+				872A1B4E1BD786CE008C81C1 /* HACDebugUtility.m in Sources */,
 				871A23301BD4D09800323592 /* FFBaseViewController.m in Sources */,
 				87640D491BD496FF00522EAB /* BusStopAnnotation.m in Sources */,
 				87640D211BD4921B00522EAB /* HACPOIController.m in Sources */,

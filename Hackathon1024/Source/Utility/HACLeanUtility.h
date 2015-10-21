@@ -17,4 +17,6 @@ static NSString *const kHACPushChannelKey = @"channels";
 
 @interface HACLeanUtility : NSObject
 
+- (void)runTestCases;
+
 @end

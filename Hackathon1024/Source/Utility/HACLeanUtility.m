@@ -18,16 +18,20 @@
 
 // LeanCloud Samples
 
+- (void)runTestCases {
+    [self objectQuery];
+}
+
 - (void)objectInsert {
-    AVObject *content = [AVObject objectWithClassName:@"MyObject"];
-    content[@"Pairs"] = @{ @"k1": @"v1", @"k2": @"v2", @"k3": @"v3" };
-    content[@"Author"] = @"Cyan";
-    content[@"Value"] = @(100);
+    AVObject *content = [AVObject objectWithClassName:@"iOS_Client_Test"];
+    content[@"dict"] = @{ @"k1": @"v1", @"k2": @"v2", @"k3": @"v3" };
+    content[@"author"] = @"Cyan";
+    content[@"value"] = @(100);
     [content saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(@"save result: %d", succeeded);
         if (succeeded) {
             // query
-            AVQuery *query = [AVQuery queryWithClassName:@"MyObject"];
+            AVQuery *query = [AVQuery queryWithClassName:@"iOS_Client_Test"];
             AVObject *object = [query getFirstObject];
             NSLog(@"object: %@", object);
         }
@@ -36,18 +40,18 @@
 
 - (void)objectFetch {
     // fecth
-    AVObject *object = [AVObject objectWithoutDataWithClassName:@"MyObject" objectId:@"562395bb60b2b199f74e6d7b"];
-    object[@"Value"] = @(200000);
+    AVObject *object = [AVObject objectWithoutDataWithClassName:@"iOS_Client_Test" objectId:@"562395bb60b2b199f74e6d7b"];
+    object[@"value"] = @(200000);
     [object incrementKey:@"Value"];
     [object addObjectsFromArray:@[ @1, @"2", @(3.0) ] forKey:@"data_list"];
-    object[@"NewValue"] = @"NewValue";
+    object[@"newValue"] = @"NewValue";
     [object save];
 }
 
 - (void)objectQuery {
     // query
-    AVQuery *query = [AVQuery queryWithClassName:@"MyObject"];
-    [query whereKey:@"Value" greaterThanOrEqualTo:@(2000)];
+    AVQuery *query = [AVQuery queryWithClassName:@"iOS_Client_Test"];
+    [query whereKey:@"value" greaterThanOrEqualTo:@(2000)];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"objects: %@", objects);
     }];
@@ -65,7 +69,7 @@
 }
 
 - (void)fileBind {
-    AVObject *object = [AVObject objectWithoutDataWithClassName:@"MyObject" objectId:@"562395bb60b2b199f74e6d7b"];
+    AVObject *object = [AVObject objectWithoutDataWithClassName:@"iOS_Client_Test" objectId:@"562395bb60b2b199f74e6d7b"];
     [AVFile getFileWithObjectId:@"5623aa0eddb24819b83bc410" withBlock:^(AVFile *file, NSError *error) {
         if (!error) {
             NSLog(@"get file ok!");

@@ -10,5 +10,6 @@
 #define HACHeaders_h
 
 #import "HACLoginCenter.h"
+#import "HACAppDelegate.h"
 
 #endif /* HACHeaders_h */

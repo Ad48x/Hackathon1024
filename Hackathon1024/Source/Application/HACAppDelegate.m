@@ -11,6 +11,7 @@
 #import "HACPushCenter.h"
 #import "HACLeanManager.h"
 #import "HACShareManager.h"
+#import "HACDebugUtility.h"
 
 @interface HACAppDelegate ()
 
@@ -18,11 +19,14 @@
 
 @implementation HACAppDelegate
 
++ (instancetype)instance {
+    return (HACAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // MARK: init Window
-    self.window = [[iConsoleWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[HACWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[HACMainController alloc] init];
     [self.window makeKeyAndVisible];
     
@@ -33,7 +37,7 @@
     // MARK: Share
     [[HACShareManager manager] initSDKs];
     // MARK: Debug
-    [self initDebugEnv];
+    [HACDebugUtility initDebugEnv];
     
     return YES;
 }
@@ -49,26 +53,5 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [HACPushCenter handleRemoteNotification:userInfo];
 }
-
-#pragma mark - Debug
-
-- (void)initDebugEnv {
-#if DEBUG
-    // MARK: iConsole
-    [iConsole sharedConsole].delegate = self;
-    [iConsole sharedConsole].logSubmissionEmail = @"log.e@qq.com";
-    // MARK: GT
-    // GT_DEBUG_INIT;
-    // MARK: FLEX
-    // [[FLEXManager sharedManager] showExplorer];
-#endif
-}
-
-#pragma mark - iConsole Delegate
-
-- (void)handleConsoleCommand:(NSString *)command {
-    Log(@"Command Received: %@", command);
-}
-
 
 @end

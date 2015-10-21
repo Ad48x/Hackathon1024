@@ -7,16 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#if DEBUG
-#import "iConsole.h"
-#import <GT/GT.h>
-#import "FLEXManager.h"
-#endif
+#import "HACWindow.h"
 
-@interface HACAppDelegate : UIResponder <UIApplicationDelegate, iConsoleDelegate>
+@interface HACAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) iConsoleWindow *window;
+@property (strong, nonatomic) HACWindow *window;
 
++ (instancetype)instance;
 
 @end
 
