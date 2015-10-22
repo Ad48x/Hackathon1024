@@ -64,6 +64,13 @@
     }];
 }
 
+- (void)queryUsers:(ArrayCallback)callback {
+    AVQuery *query = [AVQuery queryWithClassName:@"IMUser"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        callback(objects);
+    }];
+}
+
 - (void)sendMessage:(AVIMMessage *)message to:(NSString *)clientId callback:(AVIMBooleanResultBlock)callback {
     [self.client createConversationWithName:clientId clientIds:@[clientId] callback:^(AVIMConversation *conversation, NSError *error) {
         if (!error) {

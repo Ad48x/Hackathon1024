@@ -16,7 +16,7 @@
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
-- (void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx;
+- (id)objectForKeyedSubscript:(NSIndexPath *)indexPath;
+- (void)setObject:(id)object forKeyedSubscript:(NSIndexPath *)indexPath;
 
 @end

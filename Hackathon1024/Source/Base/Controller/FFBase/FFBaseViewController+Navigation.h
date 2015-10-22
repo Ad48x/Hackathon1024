@@ -13,4 +13,6 @@
 - (void)navigationBack;             // Navigation Pop一层
 - (void)pushViewController:(UIViewController *)controller;
 
+- (void)pushTabController:(UIViewController *)controller;
+
 @end

@@ -30,16 +30,16 @@
     return kHACDefaultCellHeight;
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx {
-    if (idx >= self.data.count) {
+- (id)objectForKeyedSubscript:(NSIndexPath *)indexPath {
+    if (indexPath.row >= self.data.count) {
         return nil;
     }
-    return self.data[idx];
+    return self.data[indexPath.row];
 }
 
-- (void)setObject:(id)object atIndexedSubscript:(NSUInteger)idx {
-    if (idx < self.data.count) {
-        self.data[idx] = object;
+- (void)setObject:(id)object forKeyedSubscript:(NSIndexPath *)indexPath {
+    if (indexPath.row < self.data.count) {
+        self.data[indexPath.row] = object;
     }
 }
 

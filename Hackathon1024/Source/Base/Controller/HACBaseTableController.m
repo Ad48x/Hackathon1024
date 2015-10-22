@@ -14,4 +14,14 @@
 
 @implementation HACBaseTableController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self clearExtendedLayoutEdges];
+}
+
+- (void)scrollToBottom {
+    NSIndexPath *indexPath = NSIndexPathMake(self.dataSource.data.count-1, 0);
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
 @end

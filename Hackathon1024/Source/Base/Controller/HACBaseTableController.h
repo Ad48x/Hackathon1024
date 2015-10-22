@@ -13,4 +13,6 @@
 
 @interface HACBaseTableController : FFTableViewController
 
+- (void)scrollToBottom;
+
 @end

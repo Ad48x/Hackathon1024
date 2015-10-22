@@ -12,8 +12,8 @@
 #import "HACLeanManager.h"
 #import "HACShareManager.h"
 #import "HACDebugUtility.h"
-
-#import "HACChatController.h"
+#import "HACTabController.h"
+#import "HACAppDelegate+UI.h"
 
 @interface HACAppDelegate ()
 
@@ -38,8 +38,11 @@
     
     // MARK: init Window
     self.window = [[HACWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[HACChatController alloc] init];
+    self.window.rootViewController = [[HACTabController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    // MARK: Style
+    [self setStyle];
     
     return YES;
 }

@@ -166,8 +166,16 @@
 		878BC15B1BD13F2D000E849E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 878BC15A1BD13F2D000E849E /* libWeChatSDK.a */; settings = {ASSET_TAGS = (); }; };
 		878BC1811BD1E2C2000E849E /* HACPushCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878BC1801BD1E2C2000E849E /* HACPushCenter.m */; settings = {ASSET_TAGS = (); }; };
 		878BC1851BD1EF5B000E849E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878BC1841BD1EF5B000E849E /* CoreTelephony.framework */; };
+		878EC4111BD9374100E75385 /* HACIMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 878EC4101BD9374100E75385 /* HACIMTextField.m */; settings = {ASSET_TAGS = (); }; };
 		8797F8651BD7C88800810521 /* HACIMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8797F8641BD7C88800810521 /* HACIMManager.m */; settings = {ASSET_TAGS = (); }; };
 		8797F86C1BD7D68500810521 /* HACChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8797F86B1BD7D68500810521 /* HACChatController.m */; settings = {ASSET_TAGS = (); }; };
+		879A33531BD90ECE005E561C /* HACContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33521BD90ECE005E561C /* HACContactController.m */; settings = {ASSET_TAGS = (); }; };
+		879A33561BD90F45005E561C /* HACConversationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33551BD90F45005E561C /* HACConversationsController.m */; settings = {ASSET_TAGS = (); }; };
+		879A33591BD90FD7005E561C /* HACTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33581BD90FD7005E561C /* HACTabController.m */; settings = {ASSET_TAGS = (); }; };
+		879A335C1BD913A4005E561C /* HACContactDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A335B1BD913A4005E561C /* HACContactDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		879A335F1BD9190D005E561C /* HACAppDelegate+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A335E1BD9190D005E561C /* HACAppDelegate+UI.m */; settings = {ASSET_TAGS = (); }; };
+		879A33621BD91EF2005E561C /* HACChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33611BD91EF2005E561C /* HACChatDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		879A33651BD92377005E561C /* HACTextBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33641BD92377005E561C /* HACTextBar.m */; settings = {ASSET_TAGS = (); }; };
 		87B9DD0C1BD5BE1500A1212A /* FXBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */; settings = {ASSET_TAGS = (); }; };
 		87B9DD0D1BD5BE1500A1212A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */; settings = {ASSET_TAGS = (); }; };
 		87B9DD2F1BD5C09F00A1212A /* SECompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD0F1BD5C09F00A1212A /* SECompatibility.h */; settings = {ASSET_TAGS = (); }; };
@@ -457,10 +465,26 @@
 		878BC17F1BD1E2C2000E849E /* HACPushCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HACPushCenter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		878BC1801BD1E2C2000E849E /* HACPushCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HACPushCenter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		878BC1841BD1EF5B000E849E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		878EC40F1BD9374100E75385 /* HACIMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACIMTextField.h; sourceTree = "<group>"; };
+		878EC4101BD9374100E75385 /* HACIMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACIMTextField.m; sourceTree = "<group>"; };
 		8797F8631BD7C88800810521 /* HACIMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACIMManager.h; sourceTree = "<group>"; };
 		8797F8641BD7C88800810521 /* HACIMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACIMManager.m; sourceTree = "<group>"; };
 		8797F86A1BD7D68500810521 /* HACChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACChatController.h; sourceTree = "<group>"; };
 		8797F86B1BD7D68500810521 /* HACChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACChatController.m; sourceTree = "<group>"; };
+		879A33511BD90ECE005E561C /* HACContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACContactController.h; sourceTree = "<group>"; };
+		879A33521BD90ECE005E561C /* HACContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACContactController.m; sourceTree = "<group>"; };
+		879A33541BD90F45005E561C /* HACConversationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACConversationsController.h; sourceTree = "<group>"; };
+		879A33551BD90F45005E561C /* HACConversationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACConversationsController.m; sourceTree = "<group>"; };
+		879A33571BD90FD7005E561C /* HACTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACTabController.h; sourceTree = "<group>"; };
+		879A33581BD90FD7005E561C /* HACTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACTabController.m; sourceTree = "<group>"; };
+		879A335A1BD913A4005E561C /* HACContactDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACContactDataSource.h; sourceTree = "<group>"; };
+		879A335B1BD913A4005E561C /* HACContactDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACContactDataSource.m; sourceTree = "<group>"; };
+		879A335D1BD9190D005E561C /* HACAppDelegate+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HACAppDelegate+UI.h"; sourceTree = "<group>"; };
+		879A335E1BD9190D005E561C /* HACAppDelegate+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HACAppDelegate+UI.m"; sourceTree = "<group>"; };
+		879A33601BD91EF2005E561C /* HACChatDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACChatDataSource.h; sourceTree = "<group>"; };
+		879A33611BD91EF2005E561C /* HACChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACChatDataSource.m; sourceTree = "<group>"; };
+		879A33631BD92377005E561C /* HACTextBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACTextBar.h; sourceTree = "<group>"; };
+		879A33641BD92377005E561C /* HACTextBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACTextBar.m; sourceTree = "<group>"; };
 		87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		87B9DD0F1BD5C09F00A1212A /* SECompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECompatibility.h; sourceTree = "<group>"; };
@@ -1013,6 +1037,10 @@
 		8797F8671BD7D65F00810521 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				879A33511BD90ECE005E561C /* HACContactController.h */,
+				879A33521BD90ECE005E561C /* HACContactController.m */,
+				879A33541BD90F45005E561C /* HACConversationsController.h */,
+				879A33551BD90F45005E561C /* HACConversationsController.m */,
 				8797F86A1BD7D68500810521 /* HACChatController.h */,
 				8797F86B1BD7D68500810521 /* HACChatController.m */,
 			);
@@ -1022,6 +1050,10 @@
 		8797F8681BD7D65F00810521 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				879A335A1BD913A4005E561C /* HACContactDataSource.h */,
+				879A335B1BD913A4005E561C /* HACContactDataSource.m */,
+				879A33601BD91EF2005E561C /* HACChatDataSource.h */,
+				879A33611BD91EF2005E561C /* HACChatDataSource.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1029,6 +1061,10 @@
 		8797F8691BD7D65F00810521 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				879A33631BD92377005E561C /* HACTextBar.h */,
+				879A33641BD92377005E561C /* HACTextBar.m */,
+				878EC40F1BD9374100E75385 /* HACIMTextField.h */,
+				878EC4101BD9374100E75385 /* HACIMTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1154,8 +1190,12 @@
 			children = (
 				87D059BA1BD07B9C00B39F36 /* HACAppDelegate.h */,
 				87D059BB1BD07B9C00B39F36 /* HACAppDelegate.m */,
+				879A335D1BD9190D005E561C /* HACAppDelegate+UI.h */,
+				879A335E1BD9190D005E561C /* HACAppDelegate+UI.m */,
 				872A1B4F1BD78810008C81C1 /* HACWindow.h */,
 				872A1B501BD78810008C81C1 /* HACWindow.m */,
+				879A33571BD90FD7005E561C /* HACTabController.h */,
+				879A33581BD90FD7005E561C /* HACTabController.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1783,6 +1823,7 @@
 				87640D511BD496FF00522EAB /* MANaviAnnotation.m in Sources */,
 				87640D4C1BD496FF00522EAB /* CustomOverlay.m in Sources */,
 				872A1B511BD78810008C81C1 /* HACWindow.m in Sources */,
+				879A335C1BD913A4005E561C /* HACContactDataSource.m in Sources */,
 				872A1B571BD7963B008C81C1 /* HACBaseCollectionViewCell.m in Sources */,
 				871A232C1BD4D09800323592 /* FFTableViewController.m in Sources */,
 				8787EA201BD23E2A0037961C /* HACBaseTableView.m in Sources */,
@@ -1791,26 +1832,32 @@
 				871A232E1BD4D09800323592 /* FFBaseViewController+Navigation.m in Sources */,
 				87D0593A1BD078F800B39F36 /* main.m in Sources */,
 				871A232F1BD4D09800323592 /* FFBaseViewController+UI.m in Sources */,
+				879A33591BD90FD7005E561C /* HACTabController.m in Sources */,
+				878EC4111BD9374100E75385 /* HACIMTextField.m in Sources */,
 				87640D541BD496FF00522EAB /* POIAnnotation.m in Sources */,
 				871A23331BD4D7B800323592 /* HACLoginCenter.m in Sources */,
 				8787EA2B1BD23F440037961C /* HACBaseDataSource.m in Sources */,
+				879A33561BD90F45005E561C /* HACConversationsController.m in Sources */,
 				871A23071BD4B95F00323592 /* iConsole.m in Sources */,
 				8787EA281BD23E970037961C /* HACBaseTableController.m in Sources */,
 				87DB699C1BD399560033C37B /* TQLocationConverter.m in Sources */,
 				87640D561BD496FF00522EAB /* CommonUtility.m in Sources */,
 				872A1B5A1BD7968F008C81C1 /* HACBaseCollectionLayout.m in Sources */,
 				87640D4F1BD496FF00522EAB /* LineDashPolyline.m in Sources */,
+				879A33651BD92377005E561C /* HACTextBar.m in Sources */,
 				872A1B4E1BD786CE008C81C1 /* HACDebugUtility.m in Sources */,
 				8797F86C1BD7D68500810521 /* HACChatController.m in Sources */,
 				871A23301BD4D09800323592 /* FFBaseViewController.m in Sources */,
 				87640D491BD496FF00522EAB /* BusStopAnnotation.m in Sources */,
 				87640D211BD4921B00522EAB /* HACPOIController.m in Sources */,
+				879A33531BD90ECE005E561C /* HACContactController.m in Sources */,
 				87640D481BD496FF00522EAB /* AnimatedAnnotationView.m in Sources */,
 				87D059BC1BD07B9C00B39F36 /* HACAppDelegate.m in Sources */,
 				871A23111BD4BB1900323592 /* WebViewJavascriptBridge.m in Sources */,
 				87640D4D1BD496FF00522EAB /* CustomOverlayRenderer.m in Sources */,
 				8797F8651BD7C88800810521 /* HACIMManager.m in Sources */,
 				871A23121BD4BB1900323592 /* WebViewJavascriptBridgeBase.m in Sources */,
+				879A335F1BD9190D005E561C /* HACAppDelegate+UI.m in Sources */,
 				8787EA271BD23E970037961C /* HACBaseController.m in Sources */,
 				8787EA331BD243110037961C /* HACMapUtility.m in Sources */,
 				87D059C31BD07C1200B39F36 /* HACMainController.m in Sources */,
@@ -1821,6 +1868,7 @@
 				871A23061BD4B95F00323592 /* GTMStackTrace.m in Sources */,
 				87640D4A1BD496FF00522EAB /* CustomAnnotationView.m in Sources */,
 				8780533E1BD0AA1400CC195F /* JBroken.m in Sources */,
+				879A33621BD91EF2005E561C /* HACChatDataSource.m in Sources */,
 				87D8695F1BD2778400DE5EDD /* UIImage+Resize.m in Sources */,
 				87640D4B1BD496FF00522EAB /* CustomCalloutView.m in Sources */,
 				87640D551BD496FF00522EAB /* ReGeocodeAnnotation.m in Sources */,

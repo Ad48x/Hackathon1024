@@ -13,8 +13,8 @@
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
         
-        self.textLabel.textColor = HAC_LightGray_Color;
-        self.textLabel.font = ThinFont(15);
+        self.textLabel.textColor = HAC_Black_Color;
+        self.textLabel.font = RegularFont(15);
         
         self.backgroundColor = HAC_Theme_Color;
         self.selectedBackgroundView = ({

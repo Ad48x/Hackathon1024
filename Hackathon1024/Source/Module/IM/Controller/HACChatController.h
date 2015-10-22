@@ -10,4 +10,6 @@
 
 @interface HACChatController : HACBaseTableController
 
+- (instancetype)initWithClientId:(NSString *)clientId;
+
 @end

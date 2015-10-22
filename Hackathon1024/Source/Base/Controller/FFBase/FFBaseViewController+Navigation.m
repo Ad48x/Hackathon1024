@@ -19,4 +19,10 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)pushTabController:(UIViewController *)controller {
+    self.hidesBottomBarWhenPushed = YES;
+    [self pushViewController:controller];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
 @end
