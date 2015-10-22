@@ -22,6 +22,17 @@
     });
 }
 
+- (void)openClient:(NSString *)clientId callback:(AVIMBooleanResultBlock)callback {
+    self.client = [[AVIMClient alloc] init];
+    self.client.delegate = self;
+    [self.client openWithClientId:clientId callback:^(BOOL succeeded, NSError *error) {
+        Log(@"open client: %d", succeeded);
+        if (callback) {
+            callback(succeeded, error);
+        }
+    }];
+}
+
 - (void)tomSendMessageToJerry {
     // Tom 创建了一个 client
     self.client = [[AVIMClient alloc] init];
@@ -50,6 +61,25 @@
     // Jerry 用自己的名字作为 ClientId 打开了 client
     [self.client openWithClientId:@"Jerry" callback:^(BOOL succeeded, NSError *error) {
         // ...
+    }];
+}
+
+- (void)sendMessage:(AVIMMessage *)message to:(NSString *)clientId callback:(AVIMBooleanResultBlock)callback {
+    [self.client createConversationWithName:clientId clientIds:@[clientId] callback:^(AVIMConversation *conversation, NSError *error) {
+        if (!error) {
+            [conversation sendMessage:message callback:^(BOOL succeeded, NSError *error) {
+                if (callback) {
+                    callback(succeeded, error);
+                }
+            }];
+        }
+    }];
+}
+
+- (void)sendText:(NSString *)text to:(NSString *)clientId {
+    AVIMTextMessage *message = [AVIMTextMessage messageWithText:text attributes:nil];
+    [self sendMessage:message to:clientId callback:^(BOOL succeeded, NSError *error) {
+        
     }];
 }
 

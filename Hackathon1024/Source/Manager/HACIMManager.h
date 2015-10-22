@@ -14,7 +14,11 @@ static NSString *const kHACIMDefaultConversation = @"Conversation";
 
 + (instancetype)manager;
 
+- (void)openClient:(NSString *)clientId callback:(AVIMBooleanResultBlock)callback;
+
 - (void)tomSendMessageToJerry;
 - (void)jerryReceiveMessageFromTom;
+
+- (void)sendText:(NSString *)text to:(NSString *)clientId;
 
 @end

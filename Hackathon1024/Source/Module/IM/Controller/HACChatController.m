@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[HACIMManager manager] tomSendMessageToJerry];
+    [[HACIMManager manager] openClient:@"BB" callback:^(BOOL succeeded, NSError *error) {
+        [[HACIMManager manager] sendText:@"你逗我！！！" to:@"AA"];
+    }];
 }
 
 @end
