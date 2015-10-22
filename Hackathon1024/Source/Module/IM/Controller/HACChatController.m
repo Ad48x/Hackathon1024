@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[HACIMManager manager] jerryReceiveMessageFromTom];
+//    [[HACIMManager manager] tomSendMessageToJerry];
 }
 
 @end

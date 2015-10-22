@@ -26,7 +26,9 @@
     Log(@"%@", [NSString stringWithFormat:@"Device Token: %@", token]);
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:token];
-    [currentInstallation saveInBackground];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        Log(@"Push Config: %d", succeeded);
+    }];
 }
 
 + (void)handleRemoteNotification:(NSDictionary *)userInfo {
