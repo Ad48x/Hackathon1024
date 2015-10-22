@@ -56,4 +56,8 @@
     [HACPushCenter handleRemoteNotification:userInfo];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [HACPushCenter handleRemoteNotification:userInfo];
+}
+
 @end
