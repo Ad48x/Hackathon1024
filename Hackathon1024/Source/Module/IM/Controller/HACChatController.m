@@ -10,7 +10,7 @@
 #import "HACChatDataSource.h"
 #import "HACTextBar.h"
 
-static const CGFloat kHACKeyboardInset = -258;
+#define kHACKeyboardInset   (IS_IPHONE6_PLUS ? -270.0 : -258.0)
 
 @interface HACChatController ()
 
