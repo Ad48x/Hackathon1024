@@ -42,6 +42,7 @@ static const CGFloat kHACKeyboardInset = -258;
     [self initTableWithFrame:CGRectMake(0, 0, self.view.width, self.tableHeight) refreshType:FFDataRefreshMaskNone];
     self.tableView.dataSource = self.dataSource;
     self.tableView.allowsSelection = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     delay(0.3, ^{
         [self scrollToBottom];
