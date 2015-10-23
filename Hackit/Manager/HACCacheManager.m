@@ -72,4 +72,18 @@ static NSString *const kHACStorageConverstaionIds = @"HAC.IM.Conversations";
     }];
 }
 
+- (void)setMessages:(NSArray<HACMessageObject *> *)messages forClientId:(NSString *)clientId {
+    [[HACCacheManager manager] setObject:messages forKey:clientId];
+}
+
+- (void)messagesForClientId:(NSString *)clientId complete:(ArrayCallback)callback {
+    [[HACCacheManager manager] objectForKey:clientId complete:^(id object) {
+        if (object) {
+            callback((NSArray *)object);
+        } else {
+            callback(@[]);
+        }
+    }];
+}
+
 @end

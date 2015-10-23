@@ -177,6 +177,7 @@
 		879A335F1BD9190D005E561C /* HACAppDelegate+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A335E1BD9190D005E561C /* HACAppDelegate+UI.m */; settings = {ASSET_TAGS = (); }; };
 		879A33621BD91EF2005E561C /* HACChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33611BD91EF2005E561C /* HACChatDataSource.m */; settings = {ASSET_TAGS = (); }; };
 		879A33651BD92377005E561C /* HACTextBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33641BD92377005E561C /* HACTextBar.m */; settings = {ASSET_TAGS = (); }; };
+		87B2BD2E1BDA37AF0027F907 /* HACMessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B2BD2D1BDA37AF0027F907 /* HACMessageObject.m */; settings = {ASSET_TAGS = (); }; };
 		87B9DD0C1BD5BE1500A1212A /* FXBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */; settings = {ASSET_TAGS = (); }; };
 		87B9DD0D1BD5BE1500A1212A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */; settings = {ASSET_TAGS = (); }; };
 		87B9DD2F1BD5C09F00A1212A /* SECompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD0F1BD5C09F00A1212A /* SECompatibility.h */; settings = {ASSET_TAGS = (); }; };
@@ -491,6 +492,8 @@
 		879A33611BD91EF2005E561C /* HACChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACChatDataSource.m; sourceTree = "<group>"; };
 		879A33631BD92377005E561C /* HACTextBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACTextBar.h; sourceTree = "<group>"; };
 		879A33641BD92377005E561C /* HACTextBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACTextBar.m; sourceTree = "<group>"; };
+		87B2BD2C1BDA37AF0027F907 /* HACMessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACMessageObject.h; sourceTree = "<group>"; };
+		87B2BD2D1BDA37AF0027F907 /* HACMessageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACMessageObject.m; sourceTree = "<group>"; };
 		87B9DD0A1BD5BE1500A1212A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		87B9DD0B1BD5BE1500A1212A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		87B9DD0F1BD5C09F00A1212A /* SECompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECompatibility.h; sourceTree = "<group>"; };
@@ -1080,6 +1083,8 @@
 				87BFE12B1BD9E51900BC33A1 /* HACConversationDataSource.m */,
 				87BFE12D1BD9E71B00BC33A1 /* HACCachedConversation.h */,
 				87BFE12E1BD9E71B00BC33A1 /* HACCachedConversation.m */,
+				87B2BD2C1BDA37AF0027F907 /* HACMessageObject.h */,
+				87B2BD2D1BDA37AF0027F907 /* HACMessageObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1893,6 +1898,7 @@
 				878EC4151BD9443300E75385 /* HACMessageCell.m in Sources */,
 				87640D481BD496FF00522EAB /* AnimatedAnnotationView.m in Sources */,
 				87D059BC1BD07B9C00B39F36 /* HACAppDelegate.m in Sources */,
+				87B2BD2E1BDA37AF0027F907 /* HACMessageObject.m in Sources */,
 				871A23111BD4BB1900323592 /* WebViewJavascriptBridge.m in Sources */,
 				87640D4D1BD496FF00522EAB /* CustomOverlayRenderer.m in Sources */,
 				8797F8651BD7C88800810521 /* HACIMManager.m in Sources */,
