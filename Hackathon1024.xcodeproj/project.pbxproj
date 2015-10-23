@@ -211,6 +211,8 @@
 		87B9DD4C1BD5C09F00A1212A /* SETextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9DD2C1BD5C09F00A1212A /* SETextView.m */; settings = {ASSET_TAGS = (); }; };
 		87B9DD4D1BD5C09F00A1212A /* SEViewCaptureHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B9DD2D1BD5C09F00A1212A /* SEViewCaptureHelper.h */; settings = {ASSET_TAGS = (); }; };
 		87B9DD4E1BD5C09F00A1212A /* SEViewCaptureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9DD2E1BD5C09F00A1212A /* SEViewCaptureHelper.m */; settings = {ASSET_TAGS = (); }; };
+		87BFE12C1BD9E51900BC33A1 /* HACConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BFE12B1BD9E51900BC33A1 /* HACConversationDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		87BFE1301BD9E81C00BC33A1 /* HACCachedConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BFE12E1BD9E71B00BC33A1 /* HACCachedConversation.m */; settings = {ASSET_TAGS = (); }; };
 		87C59D2E1BD3FB9100E09552 /* HACLeanUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C59D2D1BD3FB9100E09552 /* HACLeanUtility.m */; settings = {ASSET_TAGS = (); }; };
 		87D0593A1BD078F800B39F36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D059391BD078F800B39F36 /* main.m */; };
 		87D059B71BD07B2400B39F36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D059B61BD07B2400B39F36 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -523,6 +525,10 @@
 		87B9DD2C1BD5C09F00A1212A /* SETextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETextView.m; sourceTree = "<group>"; };
 		87B9DD2D1BD5C09F00A1212A /* SEViewCaptureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEViewCaptureHelper.h; sourceTree = "<group>"; };
 		87B9DD2E1BD5C09F00A1212A /* SEViewCaptureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEViewCaptureHelper.m; sourceTree = "<group>"; };
+		87BFE12A1BD9E51900BC33A1 /* HACConversationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACConversationDataSource.h; sourceTree = "<group>"; };
+		87BFE12B1BD9E51900BC33A1 /* HACConversationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACConversationDataSource.m; sourceTree = "<group>"; };
+		87BFE12D1BD9E71B00BC33A1 /* HACCachedConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACCachedConversation.h; sourceTree = "<group>"; };
+		87BFE12E1BD9E71B00BC33A1 /* HACCachedConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACCachedConversation.m; sourceTree = "<group>"; };
 		87C59D2C1BD3FB9100E09552 /* HACLeanUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HACLeanUtility.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		87C59D2D1BD3FB9100E09552 /* HACLeanUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HACLeanUtility.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		87D059351BD078F800B39F36 /* Hackathon1024.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon1024.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1070,6 +1076,10 @@
 				879A335B1BD913A4005E561C /* HACContactDataSource.m */,
 				879A33601BD91EF2005E561C /* HACChatDataSource.h */,
 				879A33611BD91EF2005E561C /* HACChatDataSource.m */,
+				87BFE12A1BD9E51900BC33A1 /* HACConversationDataSource.h */,
+				87BFE12B1BD9E51900BC33A1 /* HACConversationDataSource.m */,
+				87BFE12D1BD9E71B00BC33A1 /* HACCachedConversation.h */,
+				87BFE12E1BD9E71B00BC33A1 /* HACCachedConversation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1779,6 +1789,7 @@
 				878053241BD0A63700CC195F /* FMDatabase.m in Sources */,
 				8784FF371BD4F5F000BF2036 /* NSArray+LinqExtensions.m in Sources */,
 				8784FF611BD4FCBD00BF2036 /* NSInvocation+EXT.m in Sources */,
+				87BFE1301BD9E81C00BC33A1 /* HACCachedConversation.m in Sources */,
 				8784FF131BD4EB4300BF2036 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				873012A61BD5F2FA001C861B /* FXNotifications.m in Sources */,
 				8780532A1BD0A63700CC195F /* FMDatabaseQueue.m in Sources */,
@@ -1851,6 +1862,7 @@
 				872A1B511BD78810008C81C1 /* HACWindow.m in Sources */,
 				879A335C1BD913A4005E561C /* HACContactDataSource.m in Sources */,
 				872A1B571BD7963B008C81C1 /* HACBaseCollectionViewCell.m in Sources */,
+				87BFE12C1BD9E51900BC33A1 /* HACConversationDataSource.m in Sources */,
 				871A232C1BD4D09800323592 /* FFTableViewController.m in Sources */,
 				87F60B8E1BD9CBF100AEF184 /* HACIMUser.m in Sources */,
 				8787EA201BD23E2A0037961C /* HACBaseTableView.m in Sources */,

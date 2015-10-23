@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <PINCache/PINCache.h>
+#import "HACCachedConversation.h"
 
 typedef void (^HACCacheObjectCallback)(id object);
 
@@ -17,5 +18,10 @@ typedef void (^HACCacheObjectCallback)(id object);
 
 - (void)setObject:(id<NSCoding>)object forKey:(NSString *)key;
 - (void)objectForKey:(NSString *)key complete:(HACCacheObjectCallback)callback;
+
+- (void)setConversationId:(NSString *)conversationId forName:(NSString *)name;
+- (void)conversationIdForName:(NSString *)name complete:(HACCacheObjectCallback)callback;
+
+- (void)queryConversations:(HACCacheObjectCallback)callback;
 
 @end

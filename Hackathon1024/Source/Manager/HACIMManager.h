@@ -19,5 +19,6 @@ static NSString *const kHACIMDefaultConversation = @"Conversation";
 - (void)queryUsers:(ArrayCallback)callback;
 
 - (void)sendText:(NSString *)text to:(NSString *)clientId callback:(AVIMBooleanResultBlock)callback;
+- (void)sendText:(NSString *)text conversation:(AVIMConversation *)conversation callback:(AVIMBooleanResultBlock)callback;
 
 @end
