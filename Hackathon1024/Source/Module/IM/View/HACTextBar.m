@@ -34,9 +34,9 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if (self.showKeyboardCallback) {
-        self.showKeyboardCallback();
-    }
+//    if (self.showKeyboardCallback) {
+//        self.showKeyboardCallback();
+//    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

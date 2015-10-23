@@ -25,4 +25,7 @@
 #import "HACLeanUtility.h"
 #import "TQLocationConverter.h"
 
+// IM
+#import "HACIMUser.h"
+
 #endif /* HACHeaders_h */

@@ -44,9 +44,7 @@
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    delay(0.3, ^{
-        [self scrollToBottom];
-    });
+    [self moveToBottom];
     
     self.textBar = [[HACTextBar alloc] initWithFrame:CGRectMake(0, self.tableView.bottom, self.view.width, kHACTextBarHeight)];
     [self.view addSubview:self.textBar];
@@ -54,12 +52,19 @@
     [self bind];
 }
 
+// notifications & callbacks
 - (void)bind {
-    @weakify(self)
-    self.textBar.showKeyboardCallback = ^{
+
+    @weakify(self);
+    [self registerNotification:UIKeyboardWillShowNotification handler:^(NSNotification *notification) {
         @strongify(self)
         [self showKeyboard];
-    };
+    }];
+    
+    [self registerNotification:UIKeyboardWillHideNotification handler:^(NSNotification *notification) {
+        @strongify(self)
+        [self hideKeyboard];
+    }];
     
     self.textBar.textReturnCallback = ^(NSString *text) {
         @strongify(self)
@@ -73,16 +78,22 @@
 }
 
 - (void)hideKeyboard {
-    if (self.keyboardVisible) {
-        self.keyboardVisible = NO;
-        [self moveTextBar];
-        [self.view endEditing:YES];
-    }
+    self.keyboardVisible = NO;
+    [self moveTextBar];
 }
 
 - (void)sendText:(NSString *)text {
-    [self hideKeyboard];
-    Log(@"send text: %@", text);
+    
+    if (text.length == 0) {
+        return ;
+    }
+    
+    [[HACIMManager manager] sendText:text to:self.clientId callback:^(BOOL succeeded, NSError *error) {
+        Log(@"send text: %@ (%d)", text, succeeded);
+        if (succeeded) { // append cell
+            
+        }
+    }];
 }
 
 - (void)moveTextBar {
@@ -102,7 +113,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self hideKeyboard];
+    [self.view endEditing:YES];
 }
 
 @end

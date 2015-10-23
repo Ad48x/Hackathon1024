@@ -19,9 +19,12 @@
     [self clearExtendedLayoutEdges];
 }
 
+- (void)moveToBottom {
+    self.tableView.contentOffset = CGPointMake(0, CGFLOAT_MAX);
+}
+
 - (void)scrollToBottom {
-    NSIndexPath *indexPath = NSIndexPathMake(self.dataSource.data.count-1, 0);
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
 }
 
 @end

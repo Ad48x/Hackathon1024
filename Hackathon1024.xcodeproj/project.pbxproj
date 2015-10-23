@@ -228,6 +228,7 @@
 		87DB699C1BD399560033C37B /* TQLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DB699B1BD399560033C37B /* TQLocationConverter.m */; settings = {ASSET_TAGS = (); }; };
 		87E9F9A31BD381EF00DC5762 /* HACQRController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E9F9A21BD381EF00DC5762 /* HACQRController.m */; settings = {ASSET_TAGS = (); }; };
 		87E9F9AA1BD3901B00DC5762 /* HACImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E9F9A91BD3901B00DC5762 /* HACImagePickerController.m */; settings = {ASSET_TAGS = (); }; };
+		87F60B8E1BD9CBF100AEF184 /* HACIMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F60B8D1BD9CBF100AEF184 /* HACIMUser.m */; settings = {ASSET_TAGS = (); }; };
 		F329A4371D3F916A14301638 /* Pods_Hackathon1024.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0803343686A13672E64119 /* Pods_Hackathon1024.framework */; };
 /* End PBXBuildFile section */
 
@@ -563,6 +564,8 @@
 		87E9F9A21BD381EF00DC5762 /* HACQRController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HACQRController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		87E9F9A81BD3901B00DC5762 /* HACImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACImagePickerController.h; sourceTree = "<group>"; };
 		87E9F9A91BD3901B00DC5762 /* HACImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACImagePickerController.m; sourceTree = "<group>"; };
+		87F60B8C1BD9CBF100AEF184 /* HACIMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACIMUser.h; sourceTree = "<group>"; };
+		87F60B8D1BD9CBF100AEF184 /* HACIMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACIMUser.m; sourceTree = "<group>"; };
 		B27722ECC22EFE1B85A2179D /* Pods-Hackathon1024.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon1024.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon1024/Pods-Hackathon1024.release.xcconfig"; sourceTree = "<group>"; };
 		D931258E05BED63CCDE6D7F2 /* Pods-Hackit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackit/Pods-Hackit.release.xcconfig"; sourceTree = "<group>"; };
 		E04C5A21BC73A156FC49D685 /* Pods_Hackit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1062,6 +1065,7 @@
 		8797F8681BD7D65F00810521 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87F60B8B1BD9CBC700AEF184 /* User */,
 				879A335A1BD913A4005E561C /* HACContactDataSource.h */,
 				879A335B1BD913A4005E561C /* HACContactDataSource.m */,
 				879A33601BD91EF2005E561C /* HACChatDataSource.h */,
@@ -1463,6 +1467,15 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		87F60B8B1BD9CBC700AEF184 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				87F60B8C1BD9CBF100AEF184 /* HACIMUser.h */,
+				87F60B8D1BD9CBF100AEF184 /* HACIMUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		D1F3E0A8A262B93D54CB0630 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1839,6 +1852,7 @@
 				879A335C1BD913A4005E561C /* HACContactDataSource.m in Sources */,
 				872A1B571BD7963B008C81C1 /* HACBaseCollectionViewCell.m in Sources */,
 				871A232C1BD4D09800323592 /* FFTableViewController.m in Sources */,
+				87F60B8E1BD9CBF100AEF184 /* HACIMUser.m in Sources */,
 				8787EA201BD23E2A0037961C /* HACBaseTableView.m in Sources */,
 				8787EA211BD23E2A0037961C /* HACBaseTableViewCell.m in Sources */,
 				871A232A1BD4D09800323592 /* FFCollectionViewController.m in Sources */,

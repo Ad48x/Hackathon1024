@@ -27,7 +27,7 @@
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:token];
     [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        Log(@"Push Config: %d", succeeded);
+        Log(@"Push Config (%d)", succeeded);
     }];
 }
 
