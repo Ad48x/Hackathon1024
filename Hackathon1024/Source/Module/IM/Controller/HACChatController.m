@@ -43,13 +43,17 @@ static const CGFloat kHACKeyboardInset = -258;
     self.tableView.dataSource = self.dataSource;
     self.tableView.allowsSelection = NO;
 
-    delay(0.5, ^{
+    delay(0.3, ^{
         [self scrollToBottom];
     });
     
     self.textBar = [[HACTextBar alloc] initWithFrame:CGRectMake(0, self.tableView.bottom, self.view.width, kHACTextBarHeight)];
     [self.view addSubview:self.textBar];
     
+    [self bind];
+}
+
+- (void)bind {
     @weakify(self)
     self.textBar.showKeyboardCallback = ^{
         @strongify(self)

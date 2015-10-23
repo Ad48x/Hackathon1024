@@ -167,6 +167,7 @@
 		878BC1811BD1E2C2000E849E /* HACPushCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878BC1801BD1E2C2000E849E /* HACPushCenter.m */; settings = {ASSET_TAGS = (); }; };
 		878BC1851BD1EF5B000E849E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878BC1841BD1EF5B000E849E /* CoreTelephony.framework */; };
 		878EC4111BD9374100E75385 /* HACIMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 878EC4101BD9374100E75385 /* HACIMTextField.m */; settings = {ASSET_TAGS = (); }; };
+		878EC4151BD9443300E75385 /* HACMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 878EC4141BD9443300E75385 /* HACMessageCell.m */; settings = {ASSET_TAGS = (); }; };
 		8797F8651BD7C88800810521 /* HACIMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8797F8641BD7C88800810521 /* HACIMManager.m */; settings = {ASSET_TAGS = (); }; };
 		8797F86C1BD7D68500810521 /* HACChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8797F86B1BD7D68500810521 /* HACChatController.m */; settings = {ASSET_TAGS = (); }; };
 		879A33531BD90ECE005E561C /* HACContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A33521BD90ECE005E561C /* HACContactController.m */; settings = {ASSET_TAGS = (); }; };
@@ -467,6 +468,8 @@
 		878BC1841BD1EF5B000E849E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		878EC40F1BD9374100E75385 /* HACIMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACIMTextField.h; sourceTree = "<group>"; };
 		878EC4101BD9374100E75385 /* HACIMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACIMTextField.m; sourceTree = "<group>"; };
+		878EC4131BD9443300E75385 /* HACMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACMessageCell.h; sourceTree = "<group>"; };
+		878EC4141BD9443300E75385 /* HACMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACMessageCell.m; sourceTree = "<group>"; };
 		8797F8631BD7C88800810521 /* HACIMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACIMManager.h; sourceTree = "<group>"; };
 		8797F8641BD7C88800810521 /* HACIMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACIMManager.m; sourceTree = "<group>"; };
 		8797F86A1BD7D68500810521 /* HACChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACChatController.h; sourceTree = "<group>"; };
@@ -1024,6 +1027,15 @@
 			path = TencentOpenApi;
 			sourceTree = "<group>";
 		};
+		878EC4121BD9437400E75385 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				878EC4131BD9443300E75385 /* HACMessageCell.h */,
+				878EC4141BD9443300E75385 /* HACMessageCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8797F8661BD7D65F00810521 /* IM */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1073,7 @@
 		8797F8691BD7D65F00810521 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				878EC4121BD9437400E75385 /* Cell */,
 				879A33631BD92377005E561C /* HACTextBar.h */,
 				879A33641BD92377005E561C /* HACTextBar.m */,
 				878EC40F1BD9374100E75385 /* HACIMTextField.h */,
@@ -1851,6 +1864,7 @@
 				87640D491BD496FF00522EAB /* BusStopAnnotation.m in Sources */,
 				87640D211BD4921B00522EAB /* HACPOIController.m in Sources */,
 				879A33531BD90ECE005E561C /* HACContactController.m in Sources */,
+				878EC4151BD9443300E75385 /* HACMessageCell.m in Sources */,
 				87640D481BD496FF00522EAB /* AnimatedAnnotationView.m in Sources */,
 				87D059BC1BD07B9C00B39F36 /* HACAppDelegate.m in Sources */,
 				871A23111BD4BB1900323592 /* WebViewJavascriptBridge.m in Sources */,

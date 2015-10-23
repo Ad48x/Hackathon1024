@@ -7,29 +7,37 @@
 //
 
 #import "HACChatDataSource.h"
+#import "HACMessageCell.h"
 
 @implementation HACChatDataSource
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.data = [@[@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,] mutableCopy];
+        self.data = [@[@0, @1, @1, @0, @0, @1, @1, @0, @0, @1, @1, @0] mutableCopy];
     }
     return self;
 }
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 128;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"HACChatCell";
-    HACBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    HACMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[HACBaseTableViewCell alloc] initWithReuseIdentifier:identifier];
+        cell = [[HACMessageCell alloc] initWithReuseIdentifier:identifier];
     }
-    cell.textLabel.text = [@(indexPath.row) stringValue];
+    cell.cellType = [self[indexPath] intValue];
     return cell;
 }
 
+- (CGFloat)cellHeightForText:(NSString *)text {
+    return 0;
+}
+
+- (CGFloat)cellHeightForImage:(UIImage *)image {
+    return 0;
+}
 
 @end

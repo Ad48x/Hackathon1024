@@ -10,4 +10,7 @@
 
 @interface HACChatDataSource : HACBaseDataSource
 
+- (CGFloat)cellHeightForText:(NSString *)text;
+- (CGFloat)cellHeightForImage:(UIImage *)image;
+
 @end
