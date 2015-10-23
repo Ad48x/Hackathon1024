@@ -27,5 +27,6 @@
 
 // IM
 #import "HACIMUser.h"
+#import "NSString+Extension.h"
 
 #endif /* HACHeaders_h */
