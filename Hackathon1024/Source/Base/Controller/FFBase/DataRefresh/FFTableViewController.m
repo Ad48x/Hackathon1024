@@ -33,7 +33,10 @@
     self.tableView.delegate = self;
     
     if (mask & FFDataRefreshMaskHeader) {
-        self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(didBeginRefreshData)];
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(didBeginRefreshData)];
+        header.stateLabel.textColor = [UIColor asbestosColor];
+        header.lastUpdatedTimeLabel.textColor = [UIColor asbestosColor];
+        self.tableView.header = header;
     }
     
     if (mask & FFDataRefreshMaskFooter) {

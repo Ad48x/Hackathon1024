@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVOSCloud/AVOSCloud.h>
 
+//#define AVIM_USE_PROTOCOL_MESSAGE_PACK 1
+
 @class AVIMConversation;
 
 extern NSString *AVOSCloudIMErrorDomain;

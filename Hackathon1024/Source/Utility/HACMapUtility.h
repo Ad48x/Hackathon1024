@@ -12,4 +12,6 @@ static NSString *const kHACMapApiKey = @"ebea681af092a3186410f4a4e4677100";
 
 @interface HACMapUtility : NSObject
 
++ (CLLocationCoordinate2D)coordinateWithPOI:(AMapPOI *)poi;
+
 @end

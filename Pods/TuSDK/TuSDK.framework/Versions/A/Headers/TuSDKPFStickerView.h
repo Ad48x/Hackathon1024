@@ -3,7 +3,7 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 15/1/4.
-//  Copyright (c) 2015年 tusdk.com. All rights reserved.
+//  Copyright (c) 2015年 Lasque. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,6 @@
 
 @class TuSDKPFStickerItemView;
 @class TuSDKPFStickerView;
-@protocol TuSDKPFStickerItemViewInterface;
 
 /**
  *  贴纸元件视图委托
@@ -22,60 +21,21 @@
  *
  *  @param view 贴纸元件视图
  */
-- (void)onClosedStickerItemView:(UIView<TuSDKPFStickerItemViewInterface> *)view;
+- (void)onClosedStickerItemView:(TuSDKPFStickerItemView *)view;
 
 /**
  *  选中贴纸元件
  *
  *  @param view 贴纸元件视图
  */
-- (void)onSelectedStickerItemView:(UIView<TuSDKPFStickerItemViewInterface> *)view;
-@end
-
-/**
- *  贴纸元件视图接口
- */
-@protocol TuSDKPFStickerItemViewInterface <NSObject>
-/**
- *  贴纸元件视图委托
- */
-@property (nonatomic, assign) id<TuSDKPFStickerItemViewDelegate> delegate;
-
-/**
- *  贴纸数据对象
- */
-@property (nonatomic, retain) TuSDKPFSticker *sticker;
-
-/**
- *  边框宽度
- */
-@property (nonatomic) CGFloat strokeWidth;
-
-/**
- *  边框颜色
- */
-@property (nonatomic, retain) UIColor *strokeColor;
-
-/**
- *  选中状态
- */
-@property (nonatomic) BOOL selected;
-
-/**
- *  获取贴纸处理结果
- *
- *  @param regionRect 图片选区范围
- *
- *  @return 贴纸处理结果
- */
-- (TuSDKPFStickerResult *)resultWithRegionRect:(CGRect)regionRect;
+- (void)onSelectedStickerItemView:(TuSDKPFStickerItemView *)view;
 @end
 
 #pragma mark - TuSDKPFStickerItemView
 /**
  *  贴纸元件视图
  */
-@interface TuSDKPFStickerItemView : UIView<TuSDKPFStickerItemViewInterface>{
+@interface TuSDKPFStickerItemView : UIView{
     @protected
     // 图片视图
     UIImageView *_imageView;

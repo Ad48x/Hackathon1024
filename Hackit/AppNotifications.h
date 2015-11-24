@@ -19,6 +19,6 @@
 
 #define HACRemoveAllNotifications()                         [[NSNotificationCenter defaultCenter] removeObserver:self]
 
-
+#define DELETE_CELL         @"DELETE_CELL"
 
 #endif

@@ -3,15 +3,15 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 14/11/11.
-//  Copyright (c) 2014年 tusdk.com. All rights reserved.
+//  Copyright (c) 2014年 Lasque. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "TuSDKTSNSMutableDictionary+ImageMetadata.h"
 #import "TuSDKRatioType.h"
 #import "TuSDKFilterWrap.h"
-#import "TuSDKTSAsset.h"
 
 /**
  *  SDK处理结果
@@ -40,7 +40,7 @@
 /**
  *  相册图片对象
  */
-@property (nonatomic, retain) id<TuSDKTSAssetInterface> imageAsset;
+@property (nonatomic, retain) ALAsset *imageAsset;
 
 /**
  *  裁剪区域

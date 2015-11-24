@@ -18,7 +18,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _clientId = @"Cyan";
+        _clientId = @"562a011e60b280457801ca11";
     }
     
     return self;

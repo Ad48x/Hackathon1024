@@ -26,8 +26,6 @@ enum : AVIMMessageSendOption {
 @property (nonatomic, strong, readonly) NSString     *conversationId; // 对话 id
 @property (nonatomic, strong, readonly) NSString     *creator;        // 创建者 id
 @property (nonatomic, strong, readonly) NSDate       *createAt;       // 创建时间
-@property (nonatomic, strong, readonly) NSDate       *updateAt;       // 最后更新时间
-@property (nonatomic, strong, readonly) NSDate       *lastMessageAt;  // 对话中最后一条消息的发送时间
 @property (nonatomic, strong, readonly) NSString     *name;           // 对话名字
 @property (nonatomic, strong, readonly) NSArray      *members;        // 对话参与者列表
 @property (nonatomic, strong, readonly) NSDictionary *attributes;     // 自定义属性
@@ -90,12 +88,6 @@ enum : AVIMMessageSendOption {
  @return None.
  */
 - (void)unmuteWithCallback:(AVIMBooleanResultBlock)callback;
-
-/*!
- 标记该会话已读。
- 将服务端该会话的未读消息数置零。
- */
-- (void)markAsReadInBackground;
 
 /*!
  邀请新成员加入对话。

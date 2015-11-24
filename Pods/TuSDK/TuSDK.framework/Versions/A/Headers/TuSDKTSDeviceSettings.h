@@ -3,12 +3,10 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 15/3/4.
-//  Copyright (c) 2015年 tusdk.com. All rights reserved.
+//  Copyright (c) 2015年 Lasque. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 /**
  *  设备权限设置类型
  */
@@ -47,9 +45,7 @@ typedef void (^TuSDKTSDeviceSettingsBlock)(lsqDeviceSettingsType type, BOOL open
 /**
  *  检查设备权限
  *
- *  @param controller UIViewController
- *  @param type       设备权限设置类型
- *  @param completed  设备权限设置
+ *  @param type 设备权限设置类型
  */
-+ (void)checkAllowWithController:(UIViewController *)controller type:(lsqDeviceSettingsType)type completed:(TuSDKTSDeviceSettingsBlock)completed;
++ (void)checkAllowWithType:(lsqDeviceSettingsType)type completed:(TuSDKTSDeviceSettingsBlock)completed;
 @end

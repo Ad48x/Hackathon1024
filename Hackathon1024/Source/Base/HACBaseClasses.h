@@ -21,6 +21,7 @@
 
 // FFBase
 #define FF_NAV_BAR_HEIGHT   (64.0)
+#define TABLE_INSET         (49+FF_NAV_BAR_HEIGHT)
 #import "FFBaseViewController.h"
 #import "FFBaseViewController+UI.h"
 #import "FFBaseViewController+Navigation.h"

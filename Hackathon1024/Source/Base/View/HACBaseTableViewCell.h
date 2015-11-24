@@ -13,6 +13,7 @@ static const CGFloat kHACDefaultCellHeight = 44.0;
 @interface HACBaseTableViewCell : UITableViewCell
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier style:(UITableViewCellStyle)style;
 
 - (void)renderCell:(id)data;
 

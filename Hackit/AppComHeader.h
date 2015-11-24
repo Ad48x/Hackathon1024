@@ -20,6 +20,8 @@
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 #import "NSString+Extension.h"
+#import "NSArray+Extension.h"
+#import "NSDictionary+Extension.h"
 // Hooking
 #import "NSArray+Extension.h"
 #import "NSDictionary+Extension.h"
@@ -37,7 +39,6 @@
 #import <SDWebImage/SDWebImageManager.h>
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
-#import <AMapSearchKit/AMapSearchServices.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <MJRefresh/MJRefresh.h>
 #import <Reachability/Reachability.h>
@@ -46,6 +47,7 @@
 #import "KVStore.h"
 #import "extobjc.h"
 #import "MMWormhole.h"
+#import "MMWormholeSession.h"
 #import "UIView+Toast.h"
 #import "NSArray+LinqExtensions.h"
 #import "NSDictionary+LinqExtensions.h"

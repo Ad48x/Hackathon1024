@@ -8,6 +8,6 @@
 
 #import "iConsole.h"
 
-@interface HACWindow : iConsoleWindow<iConsoleDelegate>
+@interface HACWindow : UIWindow
 
 @end

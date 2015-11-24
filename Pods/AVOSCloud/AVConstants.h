@@ -43,7 +43,7 @@ typedef enum : NSUInteger {
 #define kAVVerboseAuto kAVVerboseNone
 #endif
 /// Cache policies
-typedef NS_ENUM(int, AVCachePolicy) {
+typedef NS_ENUM(int, AVCachePolicy){
     ///Ignore Cache
     kAVCachePolicyIgnoreCache = 0,
     

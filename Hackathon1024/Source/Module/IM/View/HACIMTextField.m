@@ -16,7 +16,7 @@
         self.layer.cornerRadius = 4;
         self.layer.borderColor = HAC_Gray_Color.CGColor;
         self.layer.borderWidth = 0.5;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = HAC_Theme_Color;
         self.placeholder = @"message";
         self.returnKeyType = UIReturnKeySend;
         self.font = RegularFont(14);

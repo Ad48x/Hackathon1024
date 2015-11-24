@@ -11,6 +11,7 @@
 
 @interface HACPOIController : HACBaseController
 
+@property (nonatomic, assign) BOOL selectFrom;
 
 @end
 

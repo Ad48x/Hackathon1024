@@ -9,6 +9,7 @@
 #import "HACContactController.h"
 #import "HACContactDataSource.h"
 #import "HACChatController.h"
+#import "HACWebController.h"
 
 @interface HACContactController ()
 
@@ -19,13 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Contact";
+    self.title = @"好友";
     
     self.dataSource = [[HACContactDataSource alloc] init];
     [self initTableWithFrame:self.view.bounds refreshType:FFDataRefreshMaskHeader];
     self.tableView.dataSource = self.dataSource;
 
-    [self queryUsers];
+//    [self queryUsers];
 }
 
 - (void)queryUsers {
@@ -41,14 +42,19 @@
 
 - (void)didBeginRefreshData {
     [self finishRefreshDataWhenTimeout];
-    [self queryUsers];
+//    [self queryUsers];
 }
 
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HACChatController *controller = [[HACChatController alloc] initWithClientId:self.dataSource[indexPath][@"name"]];
+//    HACChatController *controller = [[HACChatController alloc] initWithClientId:self.dataSource[indexPath][@"name"]];
+//    [self pushTabController:controller];
+    HACWebController *controller = [HACAppDelegate instance].webController;
+    controller.clientId = self.dataSource[indexPath][@"id"];
     [self pushTabController:controller];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

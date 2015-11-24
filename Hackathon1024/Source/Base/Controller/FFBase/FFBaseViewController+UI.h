@@ -22,7 +22,10 @@
 - (void)setExtendedLayoutEdges:(UIRectEdge)layout; // 设置边距样式
 - (void)setExtendedLayoutEdgesToAll;
 
+- (void)setLeftBarButtonWithTitle:(NSString *)title action:(void (^)(id sender))handler;
 - (void)setRightBarButtonWithTitle:(NSString *)title action:(void (^)(id sender))handler;
+
+- (void)disableRightBarButton;
 
 - (void)showToast:(NSString *)toast;
 - (void)showToast:(NSString *)toast duration:(NSTimeInterval)duration;

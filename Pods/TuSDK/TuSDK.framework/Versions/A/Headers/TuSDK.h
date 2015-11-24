@@ -3,16 +3,17 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 14/10/25.
-//  Copyright (c) 2014年 tusdk.com. All rights reserved.
+//  Copyright (c) 2014年 Lasque. All rights reserved.
 //  http://tusdk.com/docs/ios/api/
 //
 
 #import <Foundation/Foundation.h>
 
+#import "TuSDKTKThread.h"
+#import "TuSDKTKStatistics.h"
+
 #import "TuSDKTSALAssets+Extend.h"
-#import "TuSDKTSALAssetsGrouped+CreateTimeDesc.h"
 #import "TuSDKTSAnimation.h"
-#import "TuSDKTSAsset.h"
 #import "TuSDKTSAVAudioPlayer+Extend.h"
 #import "TuSDKTSAVCaptureDevice+Extend.h"
 #import "TuSDKTSBundle.h"
@@ -32,76 +33,23 @@
 #import "TuSDKTSString+Extend.h"
 #import "TuSDKTSUIColor+Extend.h"
 
-#import "TuSDKICAlertView.h"
-#import "TuSDKICEmptyView.h"
-#import "TuSDKICFilterImageViewWrap.h"
-#import "TuSDKICFocusRangeView.h"
-#import "TuSDKICGestureRecognizerView.h"
-#import "TuSDKICMaskRegionView.h"
-#import "TuSDKICPagerView.h"
 #import "TuSDKICView+Extend.h"
 #import "TuSDKICNavigationController.h"
-#import "TuSDKICSeekBar.h"
 #import "TuSDKICTableView.h"
 #import "TuSDKICTableViewCell.h"
-#import "TuSDKICTouchImageView.h"
-#import "TuSDKICMessageHubInterface.h"
-
-#import "TuSDKCPAlbumComponentBase.h"
-#import "TuSDKCPComponent.h"
-#import "TuSDKCPEditActionType.h"
-#import "TuSDKCPFilterOnlineControllerInterface.h"
-#import "TuSDKCPFilterResultController.h"
-#import "TuSDKCPFilterStickerView.h"
-#import "TuSDKCPFocusTouchViewBase.h"
-#import "TuSDKCPGroupFilterBarBase.h"
-#import "TuSDKCPGroupFilterBaseView.h"
-#import "TuSDKCPGroupFilterItemCellBase.h"
-#import "TuSDKCPImageResultOptions.h"
-#import "TuSDKCPOnlineController.h"
-#import "TuSDKCPParameterConfigViewInterface.h"
-#import "TuSDKCPPhotoEditComponentBase.h"
-#import "TuSDKCPPhotoEditMultipleComponentBase.h"
-#import "TuSDKCPResultOptions.h"
-#import "TuSDKCPOptions.h"
-
-#import "TuSDKPFAlbumViewControllerBase.h"
-#import "TuSDKPFCameraViewControllerBase.h"
-#import "TuSDKPFEditAdjustControllerBase.h"
-#import "TuSDKPFEditApertureControllerBase.h"
-#import "TuSDKPFEditCuterControllerBase.h"
-#import "TuSDKPFEditEntryControllerBase.h"
-#import "TuSDKPFEditFilterControllerBase.h"
-#import "TuSDKPFEditMultipleControllerBase.h"
-#import "TuSDKPFEditSharpnessControllerBase.h"
-#import "TuSDKPFEditSkinControllerBase.h"
-#import "TuSDKPFEditVignetteControllerBase.h"
-#import "TuSDKPFEditStickerControllerBase.h"
-#import "TuSDKPFEditTurnAndCutViewControllerBase.h"
-#import "TuSDKPFFilterOnlineControllerBase.h"
-#import "TuSDKPFPhotosViewControllerBase.h"
-#import "TuSDKPFStickerLocalControllerBase.h"
-#import "TuSDKPFStickerOnlineControllerBase.h"
-
-#import "TuSDKPFCameraFilterGroupViewBase.h"
-#import "TuSDKPFEditFilterGroupViewBase.h"
-#import "TuSDKPFFilterConfigView.h"
-#import "TuSDKPFStickerBarViewBase.h"
-#import "TuSDKPFStickerLocalGridViewBase.h"
-#import "TuSDKPFStickerView.h"
-
-#import "TuSDKTKThread.h"
-#import "TuSDKVideoCameraInterface.h"
-
-#import "TuSDKAOCellGridViewAlgorithmic.h"
-#import "TuSDKRatioType.h"
-#import "TuSDKResult.h"
-#import "TuSDKAOValid.h"
+#import "TuSDKCPFocusTouchView.h"
+#import "TuSDKProgressHUD.h"
 
 #import "TuSDKFilterLocalPackage.h"
 #import "TuSDKFilterManager.h"
+#import "TuSDKStillCamera.h"
 #import "TuSDKPFStickerLocalPackage.h"
-#import "TuSDKTKStatistics.h"
+
+#import "TuSDKRatioType.h"
+#import "TuSDKResult.h"
+#import "TuSDKCPAvatarComponent.h"
+#import "TuSDKCPPhotoEditComponent.h"
+#import "TuSDKCPPhotoEditMultipleComponent.h"
 
 /**
  *  SDK版本
@@ -162,11 +110,6 @@ extern NSString * const lsqFilterSampleExtension;
 @property (nonatomic, copy) NSString *userIdentify;
 
 /**
- *  进度信息提示
- */
-@property (nonatomic, retain) id<TuSDKICMessageHubInterface> messageHub;
-
-/**
  *  TuSDK 核心
  *
  *  @return TuSDK 核心
@@ -179,14 +122,6 @@ extern NSString * const lsqFilterSampleExtension;
  *  @param appkey 应用秘钥 (请前往 http://tusdk.com 申请秘钥)
  */
 + (void)initSdkWithAppKey:(NSString *)appkey;
-
-/**
- *  初始化SDK
- *
- *  @param appkey 应用秘钥 (请前往 http://tusdk.com 申请秘钥)
- *  @param devType 开发模式(需要与lsq_tusdk_configs.json中masters.key匹配， 如果找不到devType将默认读取master字段)
- */
-+ (void)initSdkWithAppKey:(NSString *)appkey devType:(NSString *)devType;
 
 /**
  *  设置日志输出级别
@@ -261,7 +196,55 @@ extern NSString * const lsqFilterSampleExtension;
  *
  *  @return 相机对象
  */
-+ (id<TuSDKStillCameraInterface>)cameraWithSessionPreset:(NSString *)sessionPreset
++ (TuSDKStillCamera *)cameraWithSessionPreset:(NSString *)sessionPreset
                                cameraPosition:(AVCaptureDevicePosition)cameraPosition
                                    cameraView:(UIView *)view;
+
+/**
+ *  自定义系统相册组件
+ *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKCPAlbumComponent.html
+ *
+ *  @param controller 来源控制器
+ *  @param block      组件回调结果
+ *
+ *  @return 自定义系统相册组件
+ */
++ (TuSDKCPAlbumComponent *)albumCommponentWithController:(UIViewController *)controller
+                                           callbackBlock:(TuSDKCPComponentBlock)block;
+
+/**
+ *  获取头像设置组件
+ *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKCPAvatarComponent.html
+ *
+ *  @param controller 来源控制器
+ *  @param block      组件回调结果
+ *
+ *  @return 头像设置组件
+ */
++ (TuSDKCPAvatarComponent *)avatarCommponentWithController:(UIViewController *)controller
+                                             callbackBlock:(TuSDKCPComponentBlock)block;
+
+/**
+ *  获取图片编辑组件
+ *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKCPPhotoEditComponent.html
+ *
+ *  @param controller 来源控制器
+ *  @param block      组件回调结果
+ *
+ *  @return 图片编辑组件
+ */
++ (TuSDKCPPhotoEditComponent *)photoEditCommponentWithController:(UIViewController *)controller
+                                                   callbackBlock:(TuSDKCPComponentBlock)block;
+
+/**
+ *  获取多功能图像编辑组件
+ *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKCPPhotoEditMultipleComponent.html
+ *
+ *  @param controller 来源控制器
+ *  @param block      组件回调结果
+ *
+ *  @return 多功能图像编辑组件
+ */
++ (TuSDKCPPhotoEditMultipleComponent *)photoEditMultipleWithController:(UIViewController *)controller
+                                                         callbackBlock:(TuSDKCPComponentBlock)block;
 @end

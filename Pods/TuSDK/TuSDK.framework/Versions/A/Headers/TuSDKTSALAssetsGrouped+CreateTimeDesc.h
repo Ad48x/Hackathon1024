@@ -3,12 +3,11 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 14/11/1.
-//  Copyright (c) 2014年 tusdk.com. All rights reserved.
+//  Copyright (c) 2014年 Lasque. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "TuSDKTSAsset.h"
-
+#import <AssetsLibrary/AssetsLibrary.h>
 /**
  *  相片创建时间倒序分组
  */
@@ -17,7 +16,7 @@
     /**
      *  相片列表
      */
-    NSArray<TuSDKTSAssetInterface> *_assets;
+    NSArray *_assets;
 
     /**
      *  分组列表
@@ -27,7 +26,7 @@
     /**
      *  分组数据
      */
-    NSMutableArray<NSMutableArray<TuSDKTSAssetInterface> *> *_items;
+    NSMutableArray *_items;
 }
 
 /**
@@ -43,7 +42,7 @@
 /**
  *  分组数据
  */
-@property (nonatomic, readonly) NSArray<NSArray<TuSDKTSAssetInterface> *> *items;
+@property (nonatomic, readonly) NSArray *items;
 /**
  *  创建相片时间分组
  *
@@ -51,7 +50,7 @@
  *
  *  @return 相册组相片时间分组
  */
-+ (instancetype)groupedWithAssetsGroup:(id<TuSDKTSAssetsGroupInterface>)group;
++ (instancetype)groupedWithAssetsGroup:(ALAssetsGroup *)group;
 
 /**
  *  创建相片时间分组
@@ -60,7 +59,7 @@
  *
  *  @return 相册组相片时间分组
  */
-+ (instancetype)groupedWithAssets:(NSArray<TuSDKTSAssetInterface> *)assets;
++ (instancetype)groupedWithAssets:(NSArray *)assets;
 
 /**
  *  获取组内有多少行数据
@@ -80,5 +79,5 @@
  *
  *  @return 组内行数据
  */
-- (NSArray<TuSDKTSAssetInterface> *)rowDatasIndexPath:(NSIndexPath *)indexPath withLimit:(NSUInteger)limit;
+- (NSArray *)rowDatasIndexPath:(NSIndexPath *)indexPath withLimit:(NSUInteger)limit;
 @end

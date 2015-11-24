@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AD132ECB2E3F23D0640885FE'
+               BlueprintIdentifier = '81FDFBFEDE52F816546A2218'
                BlueprintName = 'BlockInjection'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'BlockInjection.framework'>

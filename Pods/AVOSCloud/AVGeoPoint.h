@@ -1,6 +1,6 @@
 //
 //  AVGeoPoint.h
-//  LeanCloud
+//  AVOS Cloud
 //
 
 

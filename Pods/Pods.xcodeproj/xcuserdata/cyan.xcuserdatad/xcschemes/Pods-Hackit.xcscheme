@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1F4C06119B8040D706405983'
+               BlueprintIdentifier = 'B8D2845D630E661363467DA8'
                BlueprintName = 'Pods-Hackit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Hackit.framework'>

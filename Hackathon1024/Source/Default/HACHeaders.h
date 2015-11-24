@@ -11,6 +11,8 @@
 
 #import "HACLoginCenter.h"
 #import "HACAppDelegate.h"
+#import "PINToast.h"
+#import "HACFlatButton.h"
 
 // Managers
 #import "HACPushCenter.h"
@@ -24,6 +26,7 @@
 #import "HACTuSDKUtility.h"
 #import "HACLeanUtility.h"
 #import "TQLocationConverter.h"
+#import "HACSharedData.h"
 
 // IM
 #import "HACIMUser.h"

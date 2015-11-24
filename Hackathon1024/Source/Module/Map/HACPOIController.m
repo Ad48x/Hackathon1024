@@ -7,6 +7,7 @@
 //
 
 #import "HACPOIController.h"
+#import "HACMapController.h"
 
 static CGFloat const kTextFieldHeight = 44;
 
@@ -15,7 +16,7 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
     LBSRefreshTypeLoadMore      // 加载更多
 };
 
-@interface HACPOIController ()<MAMapViewDelegate, AMapSearchDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
+@interface HACPOIController ()<MAMapViewDelegate, AMapSearchDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate> {
     CLLocationManager *locationManager;
     MAMapView *_mapView;
     MAUserLocation *_userLocation;
@@ -32,6 +33,10 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 @property (nonatomic, copy) NSString *keyword;
 
 @property (nonatomic, assign) int page;
+@property (nonatomic, assign) BOOL didSearched;
+
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, strong) MAPointAnnotation *annotation;
 
 @end
 
@@ -39,6 +44,15 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = self.selectFrom ? @"选择起点": @"选择终点";
+    
+    @weakify(self);
+    [self setLeftBarButtonWithTitle:@"取消" action:^(id sender) {
+        @strongify(self)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self clearExtendedLayoutEdges];
     
     locationManager = [[CLLocationManager alloc] init];
     
@@ -52,27 +66,36 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
     }
     
     // 初始化检索对象
-    [AMapSearchServices sharedServices].apiKey = kHACMapApiKey;
-    _searchApi = [[AMapSearchAPI alloc] init];
-    _searchApi.delegate = self;
-    _searchApi.language = AMapSearchLanguageZhCN;
+    _searchApi = [[AMapSearchAPI alloc] initWithSearchKey:kHACMapApiKey Delegate:self];
+    _searchApi.language = AMapSearchLanguage_zh_CN;
     [self resetSearchState];
     
     // 初始化TableView
+    CGFloat navHeight = 30;
     self.dataSource = [[NSMutableArray alloc] initWithCapacity:10];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, self.view.bounds.size.width, self.view.bounds.size.height/2)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height*0.5-navHeight, self.view.bounds.size.width, self.view.bounds.size.height*0.5-navHeight-4)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = HAC_Theme_Color;
+    self.tableView.tableFooterView = [UIView new];
     [self.view addSubview:self.tableView];
     
     // 初始化textField
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, self.view.bounds.size.height/2-kTextFieldHeight, self.view.bounds.size.width-40, kTextFieldHeight)];
-    self.textField.placeholder = @"输入搜索关键字";
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, self.view.bounds.size.height*0.5-kTextFieldHeight-navHeight, self.view.bounds.size.width-40, kTextFieldHeight)];
+    self.textField.font = RegularFont(14);
+    self.textField.placeholder = @"搜索目的地";
     self.textField.delegate = self;
+    self.textField.clearButtonMode = UITextFieldViewModeAlways;
     self.textField.returnKeyType = UIReturnKeySearch;
-    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.textField.tintColor = [UIColor alizarinColor];
     [self.view addSubview:self.textField];
+    
+    [self.view addSubview:({
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(20, self.tableView.top, self.view.width-40, ONE_PIXEL)];
+        line.backgroundColor = HAC_DarkGray_Color;
+        line;
+    })];
     
     // 设置tableView上下拉事件
     [self setupDragEvents];
@@ -80,26 +103,45 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 
 - (void)viewDidAppear:(BOOL)animated { // 官方文档指出2D地图需要初始化在didAppear
     [super viewDidAppear:animated];
-
+    
     // 配置用户Key
     [MAMapServices sharedServices].apiKey = kHACMapApiKey;
     
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)/2-kTextFieldHeight)];
     _mapView.delegate = self;
-    [_mapView setZoomLevel:16.5 animated:YES];
+    [_mapView setZoomLevel:14.1 animated:YES];
     // 定位
     _mapView.showsUserLocation = YES;
     [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
     [self.view addSubview:_mapView];
+    
+    [_mapView addSubview:({
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, _mapView.height-0.5, _mapView.width, 0.5)];
+        line.backgroundColor = HAC_DarkGray_Color;
+        line;
+    })];
+    
+    //长按屏幕，添加大头针
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
+    longPressGesture.delegate = self;
+    longPressGesture.minimumPressDuration = 0.3;
+    longPressGesture.allowableMovement = 50.0;
+    [_mapView addGestureRecognizer:longPressGesture];
 }
 
 #pragma mark - MapView Delegate
 
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
+    
     if (updatingLocation && !_hasPoi) {
+        
         _userLocation = userLocation;
+        _coordinate = userLocation.location.coordinate;
+        
+        [self updateAnnotation];
         [self resetSearchState];
         [self beginPoiSearch];
+        
         _hasPoi = YES;
     }
 }
@@ -107,7 +149,9 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 #pragma mark - SearchApi Delegate
 
 // 实现POI搜索对应的回调函数
-- (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response {
+- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)response {
+    
+    self.didSearched = YES;
     
     if (self.refreshType == LBSRefreshTypeReload) {
         [self.dataSource removeAllObjects];
@@ -132,19 +176,52 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"PoiCellId";
+    static NSString *CellID = @"PoiCellId";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:CellID];
     }
-
+    
     AMapPOI *poi = self.dataSource[indexPath.row];
+    
     cell.textLabel.text = poi.name;
     cell.detailTextLabel.text = poi.address;
+    cell.detailTextLabel.textColor = HAC_DarkGray_Color;
+    cell.backgroundColor = HAC_Theme_Color;
+    cell.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
+    cell.layoutMargins = cell.separatorInset;
+    cell.selectedBackgroundView = ({
+        UIView *view = [UIView new];
+        view.backgroundColor = HAC_LightGray_Color;
+        view;
+    });
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.selectFrom) {
+        HACPOIController *controller = [[HACPOIController alloc] init];
+        // save
+        AMapPOI *poi = self.dataSource[indexPath.row];
+        SharedData().userInfo[@"start_name"] = poi.name;
+        SharedData().userInfo[@"start_poi"] = poi;
+        [self pushViewController:controller];
+    } else {
+        HACMapController *controller = [[HACMapController alloc] init];
+        controller.startCoordinate = [HACMapUtility coordinateWithPOI:SharedData().userInfo[@"start_poi"]];
+        AMapPOI *poi = self.dataSource[indexPath.row];
+        controller.destinationCoordinate = [HACMapUtility coordinateWithPOI:poi];
+        controller.destinationName = poi.name;
+        SharedData().userInfo[@"end_name"] = poi.name;
+        [self pushViewController:controller];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -154,6 +231,13 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 #pragma mark - UITextField Deletate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (SIMULATOR) {
+        HACMapController *controller = [[HACMapController alloc] init];
+        [self pushViewController:controller];
+        
+        return YES;
+    }
     
     if (![textField.text isEqualToString:@""]) {
         self.keyword = textField.text;
@@ -177,16 +261,14 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
 
 - (void)beginPoiSearch {
     // 构造AMapPlaceSearchRequest对象，配置关键字搜索参数
-    AMapPOIAroundSearchRequest *poiRequest = [[AMapPOIAroundSearchRequest alloc] init];
+    AMapPlaceSearchRequest *poiRequest = [[AMapPlaceSearchRequest alloc] init];
+    poiRequest.searchType = AMapSearchType_PlaceAround;
     poiRequest.keywords = _keyword;
-    poiRequest.location = [AMapGeoPoint locationWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
+    poiRequest.location = [AMapGeoPoint locationWithLatitude:_coordinate.latitude longitude:_coordinate.longitude];
     poiRequest.requireExtension = YES;
     poiRequest.page = self.page;
-    // 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
-    // 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
-    // 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
-    // poiRequest.types = @"餐饮服务|生活服务";
-    [_searchApi AMapPOIAroundSearch:poiRequest];
+    // 发起POI搜索
+    [_searchApi AMapPlaceSearch:poiRequest];
 }
 
 - (void)setupDragEvents {
@@ -196,6 +278,7 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
         [self resetSearchState];
         [self beginPoiSearch];
     }];
+    self.tableView.header.backgroundColor = HAC_Theme_Color;
     
     // Footer Refresh Logic
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -203,12 +286,48 @@ typedef NS_ENUM(NSInteger, LBSRefreshType) {
         self.refreshType = LBSRefreshTypeLoadMore;
         [self beginPoiSearch];
     }];
+    self.tableView.footer.backgroundColor = HAC_Theme_Color;
 }
 
 // 清空搜索状态 关键字设为空 页面从1开始
 - (void)resetSearchState {
     self.keyword = @"";
     self.page = 1;
+}
+
+- (void)handleLongPress:(UIGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        CGPoint touchPoint = [gesture locationInView:_mapView];
+        _coordinate = [_mapView convertPoint:touchPoint toCoordinateFromView:_mapView];
+        [self updateAnnotation];
+        [self resetSearchState];
+        [self beginPoiSearch];
+    }
+}
+
+- (void)updateAnnotation {
+    [_mapView removeAnnotation:self.annotation];
+    self.annotation = [[MAPointAnnotation alloc] init];;
+    self.annotation.coordinate = _coordinate;
+    [_mapView addAnnotation:self.annotation];
+}
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
+    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+        static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
+        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+        if (annotationView == nil) {
+            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+        }
+        annotationView.animatesDrop = YES;        //设置标注动画显示，默认为NO
+        annotationView.pinColor = MAPinAnnotationColorRed;
+        return annotationView;
+    }
+    return nil;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end

@@ -59,8 +59,16 @@ static const NSTimeInterval CSToastDefaultDuration = 3;
     }
 }
 
+- (void)setLeftBarButtonWithTitle:(NSString *)title action:(void (^)(id))handler {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:title style:UIBarButtonItemStylePlain handler:handler];
+}
+
 - (void)setRightBarButtonWithTitle:(NSString *)title action:(void (^)(id sender))handler {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:title style:UIBarButtonItemStylePlain handler:handler];
+}
+
+- (void)disableRightBarButton {
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)showToast:(NSString *)toast {

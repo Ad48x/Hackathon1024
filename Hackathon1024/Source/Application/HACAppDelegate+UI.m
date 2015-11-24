@@ -12,15 +12,19 @@
 
 - (void)setStyle {
     // StatusBar Style
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    // NavBar Hidden
-    [[UINavigationBar appearance] setBarTintColor:HAC_Theme_Color];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    // NavBar
+    [[UINavigationBar appearance] setTintColor:HAC_LightGray_Color];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor midnightBlueColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-        NSForegroundColorAttributeName: HAC_Black_Color,
-        NSFontAttributeName: MediumFont(17.0)
+        NSForegroundColorAttributeName: HAC_White_Color,
+        NSFontAttributeName: LightFont(17.0)
     }];
     // Table
-    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:HAC_LightGray_Color];
+    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:HAC_DarkGray_Color];
+    // Tab
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor midnightBlueColor]];
 }
 
 @end

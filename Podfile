@@ -22,8 +22,8 @@ def app_pods
 end
 
 def amap_pods
-    pod 'AMap2DMap'
-    pod 'AMapSearch'
+    pod 'AMap2DMap', '2.6.0'     #高德2D地图SDK
+    pod 'AMapSearch', '2.6.0'     #高德地图搜索SDK
 end
 
 def tusdk_pods

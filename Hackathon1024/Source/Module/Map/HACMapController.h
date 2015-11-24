@@ -11,8 +11,11 @@
 
 @interface HACMapController : HACBaseController
 
+@property (nonatomic, assign) BOOL disableRightBarButton;
 @property (nonatomic, copy) NSString *destinationName;
 @property (nonatomic, assign) CLLocationCoordinate2D startCoordinate;
 @property (nonatomic, assign) CLLocationCoordinate2D destinationCoordinate;
+@property (nonatomic, copy) NSString *vehicleText;
+@property (nonatomic, copy) NSString *timeText;
 
 @end

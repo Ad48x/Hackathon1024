@@ -14,8 +14,8 @@
 + (void)initDebugEnv {
 #if DEBUG
     // MARK: iConsole
-    [iConsole sharedConsole].delegate = [[HACAppDelegate instance] window];
-    [iConsole sharedConsole].logSubmissionEmail = @"log.e@qq.com";
+//    [iConsole sharedConsole].delegate = [[HACAppDelegate instance] window];
+//    [iConsole sharedConsole].logSubmissionEmail = @"log.e@qq.com";
     // MARK: GT
     // GT_DEBUG_INIT;
     // MARK: FLEX

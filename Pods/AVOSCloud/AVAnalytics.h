@@ -1,6 +1,6 @@
 //
 //  AVAnalytics.h
-//  LeanCloud
+//  AVOS Cloud
 //
 //  Created by Zhu Zeng on 6/20/13.
 //  Copyright (c) 2013 AVOS. All rights reserved.
@@ -13,7 +13,7 @@
 /**
  *  Report Policy
  */
-typedef NS_ENUM(int, AVReportPolicy) {
+typedef NS_ENUM(int, AVReportPolicy){
     /// 实时发送, debug only
     AV_REALTIME = 0,
     

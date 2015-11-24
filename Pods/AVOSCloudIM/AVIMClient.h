@@ -16,7 +16,7 @@
 @class AVIMConversationQuery;
 @protocol AVIMClientDelegate;
 
-typedef NS_ENUM(NSUInteger, AVIMClientStatus) {
+typedef enum : NSUInteger {
     AVIMClientStatusNone,
     AVIMClientStatusOpening,
     AVIMClientStatusOpened,
@@ -24,39 +24,25 @@ typedef NS_ENUM(NSUInteger, AVIMClientStatus) {
     AVIMClientStatusResuming,
     AVIMClientStatusClosing,
     AVIMClientStatusClosed
-};
+} AVIMClientStatus;
 
-typedef NS_OPTIONS(uint64_t, AVIMConversationOption) {
-    AVIMConversationOptionNone      = 0,
+typedef uint64_t AVIMConversationOption;
+enum : AVIMConversationOption {
+    AVIMConversationOptionNone = 0,
     AVIMConversationOptionTransient = 1 << 0,
-    AVIMConversationOptionUnique    = 1 << 1,
 };
 
 @interface AVIMClient : NSObject
-
-@property (nonatomic, weak) id<AVIMClientDelegate> delegate;
-@property (nonatomic, weak) id<AVIMSignatureDataSource> signatureDataSource;
-@property (nonatomic, readonly, copy) NSString *clientId;
-@property (nonatomic, readonly, assign) AVIMClientStatus status;
+@property(nonatomic, weak)id<AVIMClientDelegate> delegate;
+@property(nonatomic, weak)id<AVIMSignatureDataSource> signatureDataSource;
+@property(nonatomic, readonly)NSString *clientId;
+@property(nonatomic, readonly)AVIMClientStatus status;
 
 /*!
  默认 AVIMClient 实例
  @return AVIMClient 实例
  */
 + (instancetype)defaultClient;
-
-/*!
- * 设置用户选项。
- * 该接口用于控制 AVIMClient 的一些细节行为。
- * @param userOptions 用户选项。
- */
-+ (void)setUserOptions:(NSDictionary *)userOptions;
-
-/*!
- * 设置实时通信的超时时间，默认 15 秒。
- * @param seconds 超时时间，单位是秒。
- */
-+ (void)setTimeoutIntervalInSeconds:(NSTimeInterval)seconds;
 
 /*!
  重置默认 AVIMClient 实例

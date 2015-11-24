@@ -3,7 +3,7 @@
 //  TuSDK
 //
 //  Created by Clear Hu on 14/11/2.
-//  Copyright (c) 2014年 tusdk.com. All rights reserved.
+//  Copyright (c) 2014年 Lasque. All rights reserved.
 //
 
 #import <AVFoundation/AVFoundation.h>
@@ -31,11 +31,9 @@
 /**
  *  如果不支持摄像头显示警告信息
  *
- *  @param controller UIViewController
- *
  *  @return 是否显示警告
  */
-+ (BOOL)showAlertIfNotSupportCameraWithController:(UIViewController *)controller;
++ (BOOL)showAlertIfNotSupportCamera;
 
 /**
  *  获取相机设备标识（前置或后置） 后置优先

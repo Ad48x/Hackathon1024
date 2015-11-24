@@ -137,7 +137,7 @@
         [annotations addObjectsFromArray:walkingRoute.naviAnnotations];
     }
     
-    MAPolyline *busLinePolyline = [MANaviRoute polylineForBusLine:segment.buslines.firstObject];
+    MAPolyline *busLinePolyline = [MANaviRoute polylineForBusLine:segment.busline];
     if (busLinePolyline != nil)
     {
         [polylines addObject:busLinePolyline];
@@ -145,7 +145,7 @@
         MANaviAnnotation * bus = [[MANaviAnnotation alloc] init];
         bus.coordinate = MACoordinateForMapPoint(busLinePolyline.points[0]);
         bus.type = MANaviType_Bus;
-        bus.title = [segment.buslines.firstObject name];
+        bus.title = segment.busline.name;
         [annotations addObject:bus];
     }
     
@@ -246,7 +246,7 @@
         CLLocationCoordinate2D startCoor;
         CLLocationCoordinate2D endCoor;
         
-        MAPolyline *busLinePolyline = [self polylineForBusLine:(lastSegment).buslines.firstObject];
+        MAPolyline *busLinePolyline = [self polylineForBusLine:(lastSegment).busline];
         if (busLinePolyline != nil)
         {
             [busLinePolyline getCoordinates:&startCoor range:NSMakeRange(busLinePolyline.pointCount-1, 1)];
@@ -274,7 +274,7 @@
         else
         {
             
-            MAPolyline *busLinePolyline = [self polylineForBusLine:(segment).buslines.firstObject];
+            MAPolyline *busLinePolyline = [self polylineForBusLine:(segment).busline];
             if (busLinePolyline != nil)
             {
                 [busLinePolyline getCoordinates:&endCoor range:NSMakeRange(0 , 1)];

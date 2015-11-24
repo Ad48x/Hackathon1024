@@ -10,7 +10,6 @@
 #import "MJRefreshComponent.h"
 #import "MJRefreshConst.h"
 #import "UIView+MJExtension.h"
-#import "UIScrollView+MJRefresh.h"
 
 @interface MJRefreshComponent()
 @property (strong, nonatomic) UIPanGestureRecognizer *pan;
@@ -67,7 +66,7 @@
         // 设置永远支持垂直弹簧效果
         _scrollView.alwaysBounceVertical = YES;
         // 记录UIScrollView最开始的contentInset
-        _scrollViewOriginalInset = _scrollView.contentInset;
+        _scrollViewOriginalInset = self.scrollView.contentInset;
         
         // 添加监听
         [self addObservers];
@@ -168,14 +167,10 @@
     self.automaticallyChangeAlpha = autoChangeAlpha;
 }
 
-- (BOOL)isAutoChangeAlpha
-{
-    return self.isAutomaticallyChangeAlpha;
-}
-
 - (void)setAutomaticallyChangeAlpha:(BOOL)automaticallyChangeAlpha
 {
     _automaticallyChangeAlpha = automaticallyChangeAlpha;
+    
     
     if (self.isRefreshing) return;
     

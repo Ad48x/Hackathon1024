@@ -17,7 +17,6 @@
 #import "AVUser.h"
 #import "AVRole.h"
 #import "AVFile.h"
-#import "AVFileQuery.h"
 #import "AVAnonymousUtils.h"
 #import "AVACL.h"
 #import "AVInstallation.h"
@@ -38,7 +37,7 @@
 /**
  *  Storage Type
  */
-typedef NS_ENUM(int, AVStorageType) {
+typedef NS_ENUM(int, AVStorageType){
     /// QiNiu
     AVStorageTypeQiniu = 0,
     
@@ -78,12 +77,12 @@ typedef enum AVLogLevel : NSUInteger {
  */
 + (void)setVerbosePolicy:(AVVerbosePolicy)verbosePolicy;
 
-/** @name Connecting to LeanCloud */
+/** @name Connecting to AVOS Cloud */
 
 /*!
  Sets the applicationId and clientKey of your application.
- @param applicationId The applicaiton id for your LeanCloud application.
- @param clientKey The client key for your LeanCloud application.
+ @param applicationId The applicaiton id for your AVOS Cloud application.
+ @param clientKey The client key for your AVOS Cloud application.
  */
 + (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey;
 

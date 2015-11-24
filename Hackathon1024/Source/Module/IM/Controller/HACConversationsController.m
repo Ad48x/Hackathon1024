@@ -18,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Conversations";
+    self.title = @"发现";
     
     self.dataSource = [[HACConversationDataSource alloc] init];
     [self initTableWithFrame:self.view.bounds refreshType:FFDataRefreshMaskHeader];
-    self.tableView.dataSource = self.dataSource;
+//    self.tableView.dataSource = self.dataSource;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,6 +46,11 @@
 - (void)didBeginRefreshData {
     [self finishRefreshDataWhenTimeout];
     [self queryConversationsFromCache];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SendMessageToWatch(@{ @"id": @"123", @"message": @"hello" });
 }
 
 @end

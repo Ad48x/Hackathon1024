@@ -9,9 +9,10 @@
 #ifndef HAC_AppStyles_h
 #define HAC_AppStyles_h
 
-#define HAC_Theme_Color         [UIColor whiteColor]
+#define HAC_Theme_Color         [UIColor cloudsColor]
 #define HAC_Gray_Color          HexColor(0xdddddd)
 #define HAC_LightGray_Color     HexColor(0xdedede)
+#define HAC_DarkGray_Color      HexColor(0x6a6a6a)
 #define HAC_Black_Color         [UIColor blackColor]
 #define HAC_White_Color         [UIColor whiteColor]
 #define HAC_Red_Color           [UIColor alizarinColor]

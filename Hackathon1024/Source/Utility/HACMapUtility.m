@@ -10,4 +10,8 @@
 
 @implementation HACMapUtility
 
++ (CLLocationCoordinate2D)coordinateWithPOI:(AMapPOI *)poi {
+    return CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+}
+
 @end

@@ -22,6 +22,7 @@
 + (void)addChannel:(NSString *)channel;
 + (void)removeChannel:(NSString *)channel;
 
++ (void)sendPush:(NSString *)message toId:(NSString *)clientId;
 + (void)sendPush:(NSString *)message channel:(NSString *)channel;
 + (void)sendPush:(NSString *)message channels:(NSArray *)channels;
 

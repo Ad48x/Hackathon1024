@@ -36,11 +36,11 @@
     [AVAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
     
     // alert
-    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Push Received" message:userInfo.description];
-    [alert bk_addButtonWithTitle:@"OK" handler:^{
-        // handle userInfo
-    }];
-    [alert show];
+//    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Push Received" message:userInfo.description];
+//    [alert bk_addButtonWithTitle:@"OK" handler:^{
+//        // handle userInfo
+//    }];
+//    [alert show];
 }
 
 + (void)clearBadge {
@@ -65,6 +65,12 @@
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation removeObject:channel forKey:kHACPushChannelKey];
     [currentInstallation saveInBackground];
+}
+
++ (void)sendPush:(NSString *)message toId:(NSString *)clientId {
+    AVPush *push = [[AVPush alloc] init];
+    [push setMessage:message];
+    [push sendPushInBackground];
 }
 
 + (void)sendPush:(NSString *)message channel:(NSString *)channel {

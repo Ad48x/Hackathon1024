@@ -16,7 +16,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _refreshTimeout = 10;
+        _refreshTimeout = 3;
     }
     return self;
 }

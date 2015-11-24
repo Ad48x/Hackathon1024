@@ -58,16 +58,16 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "AMap2DMap/MAMapKit.framework/Versions/3.1.0.56231a5/Resources/AMap.bundle"
+  install_resource "AMap2DMap/MAMapKit.framework/Versions/2.6.0.e9e21b6/Resources/AMap.bundle"
   install_resource "TuSDK/Localization/Base.lproj"
   install_resource "TuSDK/Localization/En.lproj"
-  install_resource "TuSDK/Localization/zh-Hant.lproj"
+  install_resource "TuSDK/TuSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "AMap2DMap/MAMapKit.framework/Versions/3.1.0.56231a5/Resources/AMap.bundle"
+  install_resource "AMap2DMap/MAMapKit.framework/Versions/2.6.0.e9e21b6/Resources/AMap.bundle"
   install_resource "TuSDK/Localization/Base.lproj"
   install_resource "TuSDK/Localization/En.lproj"
-  install_resource "TuSDK/Localization/zh-Hant.lproj"
+  install_resource "TuSDK/TuSDK.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

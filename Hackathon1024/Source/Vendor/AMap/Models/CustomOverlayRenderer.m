@@ -35,7 +35,6 @@
     NSString *legendString = @"Hello AMap!!";
     CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
     [legendString drawAtPoint:CGPointMake(width * 0.3, width * 0.45) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20.0 / zoomScale]}];
-    
     UIGraphicsPopContext();
     
     //绘制path
